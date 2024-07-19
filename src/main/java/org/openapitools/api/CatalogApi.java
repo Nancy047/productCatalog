@@ -377,14 +377,14 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"A comprehensive catalog of all available products.\",\n" +
+                            "    \"description\": \"50GB data per month for enterprise users\",\n" +
                             "    \"relatedParty\": [\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Supplier\",\n" +
+                            "            \"role\": \"Vendor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Tech Supplies Co.\",\n" +
+                            "            \"name\": \"Broadly Broad Ltd\",\n" +
                             "            \"id\": \"RP101\",\n" +
                             "            \"href\": \"https://example.com/suppliers/tech-supplies\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
@@ -394,7 +394,7 @@ public interface CatalogApi {
                             "            \"role\": \"Distributor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Global Distributors Inc.\",\n" +
+                            "            \"name\": \"John Hebron\",\n" +
                             "            \"id\": \"RP102\",\n" +
                             "            \"href\": \"https://example.com/distributors/global-distributors\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
@@ -403,7 +403,7 @@ public interface CatalogApi {
                             "    \"version\": \"1.2\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Global Product Catalog\",\n" +
+                            "    \"name\": \"AT&T Enterprise Basic Data Plan\",\n" +
                             "    \"id\": \"C1001\",\n" +
                             "    \"href\": \"https://example.com/catalogs/global-product-catalog\",\n" +
                             "    \"category\": [\n" +
