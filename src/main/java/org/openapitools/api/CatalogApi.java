@@ -558,7 +558,7 @@ public interface CatalogApi {
                             "            \"id\": \"RP107\",\n" +
                             "            \"href\": \"https://example.com/suppliers/healthcare-providers\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
+                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.2\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
@@ -608,7 +608,7 @@ public interface CatalogApi {
                             "            \"id\": \"RP109\",\n" +
                             "            \"href\": \"https://example.com/suppliers/sports-gear\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
+                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
@@ -658,7 +658,7 @@ public interface CatalogApi {
                             "            \"id\": \"RP111\",\n" +
                             "            \"href\": \"https://example.com/suppliers/bookworm-publications\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
+                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.0\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
@@ -709,7 +709,7 @@ public interface CatalogApi {
                             "            \"id\": \"RP113\",\n" +
                             "            \"href\": \"https://example.com/suppliers/financial-solutions-group\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
+                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
@@ -759,7 +759,7 @@ public interface CatalogApi {
                             "            \"id\": \"RP115\",\n" +
                             "            \"href\": \"https://example.com/suppliers/green-thumb-supplies\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
+                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.0\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
@@ -809,7 +809,7 @@ public interface CatalogApi {
                             "            \"id\": \"RP117\",\n" +
                             "            \"href\": \"https://example.com/suppliers/legal-solutions-firm\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
+                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
@@ -909,7 +909,7 @@ public interface CatalogApi {
                             "            \"id\": \"RP121\",\n" +
                             "            \"href\": \"https://example.com/suppliers/travel-experts-group\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
+                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
@@ -959,7 +959,7 @@ public interface CatalogApi {
                             "            \"id\": \"RP123\",\n" +
                             "            \"href\": \"https://example.com/suppliers/kitchen-essentials\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
+                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.0\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
