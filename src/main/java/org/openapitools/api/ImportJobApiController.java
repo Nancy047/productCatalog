@@ -30,7 +30,9 @@ import javax.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
 @Controller
+@CrossOrigin(origins = "*") 
 @RequestMapping("${openapi.productCatalogManagement.base-path:/tmf-api/productCatalogManagement/v4}")
+
 public class ImportJobApiController implements ImportJobApi {
 
     private final NativeWebRequest request;

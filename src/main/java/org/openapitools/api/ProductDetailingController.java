@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@CrossOrigin(origins = "*") 
 @RequestMapping("tmf-api/productCatalogManagement/v4")
+
 public class ProductDetailingController {
     @Autowired
     ProductCatalogUtils productCatalogUtils;

@@ -37,6 +37,7 @@ import javax.annotation.Generated;
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
 @Validated
 @Tag(name = "importJob", description = "the importJob API")
+@CrossOrigin(origins = "*") 
 public interface ImportJobApi {
 
     default Optional<NativeWebRequest> getRequest() {

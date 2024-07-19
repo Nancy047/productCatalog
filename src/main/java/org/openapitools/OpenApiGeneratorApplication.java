@@ -26,5 +26,18 @@ public class OpenApiGeneratorApplication {
     public Module jsonNullableModule() {
         return new JsonNullableModule();
     }
-
-}
+@Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("*")
+                        .allowedMethods("GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("Authorization", "Origin", "Content-Type", "correlationId", "sessionId", "encryptedId")
+                        .exposedHeaders("Access-Control-Allow-Origin")
+                        .allowCredentials(false)
+                        .maxAge(3600);
+            }
+        };
+    }
