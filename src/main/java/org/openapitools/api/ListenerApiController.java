@@ -1,28 +1,14 @@
 package org.openapitools.api;
 
-import org.openapitools.model.CatalogAttributeValueChangeEvent;
-import org.openapitools.model.CatalogBatchEvent;
-import org.openapitools.model.CatalogCreateEvent;
-import org.openapitools.model.CatalogDeleteEvent;
-import org.openapitools.model.CatalogStateChangeEvent;
-import org.openapitools.model.CategoryAttributeValueChangeEvent;
-import org.openapitools.model.CategoryCreateEvent;
-import org.openapitools.model.CategoryDeleteEvent;
-import org.openapitools.model.CategoryStateChangeEvent;
 import org.openapitools.model.Error;
-import org.openapitools.model.EventSubscription;
-import org.openapitools.model.ProductOfferingAttributeValueChangeEvent;
-import org.openapitools.model.ProductOfferingCreateEvent;
-import org.openapitools.model.ProductOfferingDeleteEvent;
-import org.openapitools.model.ProductOfferingPriceAttributeValueChangeEvent;
-import org.openapitools.model.ProductOfferingPriceCreateEvent;
-import org.openapitools.model.ProductOfferingPriceDeleteEvent;
-import org.openapitools.model.ProductOfferingPriceStateChangeEvent;
-import org.openapitools.model.ProductOfferingStateChangeEvent;
-import org.openapitools.model.ProductSpecificationAttributeValueChangeEvent;
-import org.openapitools.model.ProductSpecificationCreateEvent;
-import org.openapitools.model.ProductSpecificationDeleteEvent;
-import org.openapitools.model.ProductSpecificationStateChangeEvent;
+import org.openapitools.model.IndividualAttributeValueChangeEvent;
+import org.openapitools.model.IndividualCreateEvent;
+import org.openapitools.model.IndividualDeleteEvent;
+import org.openapitools.model.IndividualStateChangeEvent;
+import org.openapitools.model.OrganizationAttributeValueChangeEvent;
+import org.openapitools.model.OrganizationCreateEvent;
+import org.openapitools.model.OrganizationDeleteEvent;
+import org.openapitools.model.OrganizationStateChangeEvent;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,11 +28,10 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
 @Controller
 @CrossOrigin(origins = "*")
-@RequestMapping("${openapi.productCatalogManagement.base-path:/tmf-api/productCatalogManagement/v4}")
-
+@RequestMapping("${openapi.partyManagement.base-path:/partyManagement/v5}")
 public class ListenerApiController implements ListenerApi {
 
     private final NativeWebRequest request;

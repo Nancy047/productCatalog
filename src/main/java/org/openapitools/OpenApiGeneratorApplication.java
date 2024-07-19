@@ -28,7 +28,6 @@ public class OpenApiGeneratorApplication {
     public Module jsonNullableModule() {
         return new JsonNullableModule();
     }
-
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {

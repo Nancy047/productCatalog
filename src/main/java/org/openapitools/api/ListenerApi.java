@@ -5,29 +5,15 @@
  */
 package org.openapitools.api;
 
-import org.openapitools.model.CatalogAttributeValueChangeEvent;
-import org.openapitools.model.CatalogBatchEvent;
-import org.openapitools.model.CatalogCreateEvent;
-import org.openapitools.model.CatalogDeleteEvent;
-import org.openapitools.model.CatalogStateChangeEvent;
-import org.openapitools.model.CategoryAttributeValueChangeEvent;
-import org.openapitools.model.CategoryCreateEvent;
-import org.openapitools.model.CategoryDeleteEvent;
-import org.openapitools.model.CategoryStateChangeEvent;
 import org.openapitools.model.Error;
-import org.openapitools.model.EventSubscription;
-import org.openapitools.model.ProductOfferingAttributeValueChangeEvent;
-import org.openapitools.model.ProductOfferingCreateEvent;
-import org.openapitools.model.ProductOfferingDeleteEvent;
-import org.openapitools.model.ProductOfferingPriceAttributeValueChangeEvent;
-import org.openapitools.model.ProductOfferingPriceCreateEvent;
-import org.openapitools.model.ProductOfferingPriceDeleteEvent;
-import org.openapitools.model.ProductOfferingPriceStateChangeEvent;
-import org.openapitools.model.ProductOfferingStateChangeEvent;
-import org.openapitools.model.ProductSpecificationAttributeValueChangeEvent;
-import org.openapitools.model.ProductSpecificationCreateEvent;
-import org.openapitools.model.ProductSpecificationDeleteEvent;
-import org.openapitools.model.ProductSpecificationStateChangeEvent;
+import org.openapitools.model.IndividualAttributeValueChangeEvent;
+import org.openapitools.model.IndividualCreateEvent;
+import org.openapitools.model.IndividualDeleteEvent;
+import org.openapitools.model.IndividualStateChangeEvent;
+import org.openapitools.model.OrganizationAttributeValueChangeEvent;
+import org.openapitools.model.OrganizationCreateEvent;
+import org.openapitools.model.OrganizationDeleteEvent;
+import org.openapitools.model.OrganizationStateChangeEvent;
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -54,9 +40,9 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
 @Validated
-@Tag(name = "notification listeners (client side)", description = "the notification listeners (client side) API")
+@Tag(name = "notification listener", description = "Notifications for Resource Lifecycle and event notifications")
 public interface ListenerApi {
 
     default Optional<NativeWebRequest> getRequest() {
@@ -64,101 +50,40 @@ public interface ListenerApi {
     }
 
     /**
-     * POST /listener/catalogAttributeValueChangeEvent : Client listener for entity CatalogAttributeValueChangeEvent
-     * Example of a client listener for receiving the notification CatalogAttributeValueChangeEvent
+     * POST /listener/individualAttributeValueChangeEvent : Client listener for entity IndividualAttributeValueChangeEvent
+     * Example of a client listener for receiving the notification IndividualAttributeValueChangeEvent
      *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
+     * @param individualAttributeValueChangeEvent Individual attributeValueChange Event payload (required)
+     * @return Notified (status code 204)
+     *         or Error (status code 200)
      */
     @Operation(
-        operationId = "listenToCatalogAttributeValueChangeEvent",
-        summary = "Client listener for entity CatalogAttributeValueChangeEvent",
-        description = "Example of a client listener for receiving the notification CatalogAttributeValueChangeEvent",
-        tags = { "notification listeners (client side)" },
+        operationId = "individualAttributeValueChangeEvent",
+        summary = "Client listener for entity IndividualAttributeValueChangeEvent",
+        description = "Example of a client listener for receiving the notification IndividualAttributeValueChangeEvent",
+        tags = { "notification listener" },
         responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
+            @ApiResponse(responseCode = "204", description = "Notified"),
+            @ApiResponse(responseCode = "default", description = "Error", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/listener/catalogAttributeValueChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
+        value = "/listener/individualAttributeValueChangeEvent",
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     
-    default ResponseEntity<EventSubscription> listenToCatalogAttributeValueChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody CatalogAttributeValueChangeEvent data
+    default ResponseEntity<Void> individualAttributeValueChangeEvent(
+        @Parameter(name = "IndividualAttributeValueChangeEvent", description = "Individual attributeValueChange Event payload", required = true) @Valid @RequestBody IndividualAttributeValueChangeEvent individualAttributeValueChangeEvent
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"@schemaLocation\" : \"@schemaLocation\", \"message\" : \"message\", \"referenceError\" : \"referenceError\", \"status\" : \"status\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
             }
@@ -169,101 +94,40 @@ public interface ListenerApi {
 
 
     /**
-     * POST /listener/catalogBatchEvent : Client listener for entity CatalogBatchEvent
-     * Example of a client listener for receiving the notification CatalogBatchEvent
+     * POST /listener/individualCreateEvent : Client listener for entity IndividualCreateEvent
+     * Example of a client listener for receiving the notification IndividualCreateEvent
      *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
+     * @param individualCreateEvent Individual create Event payload (required)
+     * @return Notified (status code 204)
+     *         or Error (status code 200)
      */
     @Operation(
-        operationId = "listenToCatalogBatchEvent",
-        summary = "Client listener for entity CatalogBatchEvent",
-        description = "Example of a client listener for receiving the notification CatalogBatchEvent",
-        tags = { "notification listeners (client side)" },
+        operationId = "individualCreateEvent",
+        summary = "Client listener for entity IndividualCreateEvent",
+        description = "Example of a client listener for receiving the notification IndividualCreateEvent",
+        tags = { "notification listener" },
         responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
+            @ApiResponse(responseCode = "204", description = "Notified"),
+            @ApiResponse(responseCode = "default", description = "Error", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/listener/catalogBatchEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
+        value = "/listener/individualCreateEvent",
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     
-    default ResponseEntity<EventSubscription> listenToCatalogBatchEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody CatalogBatchEvent data
+    default ResponseEntity<Void> individualCreateEvent(
+        @Parameter(name = "IndividualCreateEvent", description = "Individual create Event payload", required = true) @Valid @RequestBody IndividualCreateEvent individualCreateEvent
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"@schemaLocation\" : \"@schemaLocation\", \"message\" : \"message\", \"referenceError\" : \"referenceError\", \"status\" : \"status\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
             }
@@ -274,101 +138,40 @@ public interface ListenerApi {
 
 
     /**
-     * POST /listener/catalogCreateEvent : Client listener for entity CatalogCreateEvent
-     * Example of a client listener for receiving the notification CatalogCreateEvent
+     * POST /listener/individualDeleteEvent : Client listener for entity IndividualDeleteEvent
+     * Example of a client listener for receiving the notification IndividualDeleteEvent
      *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
+     * @param individualDeleteEvent Individual delete Event payload (required)
+     * @return Notified (status code 204)
+     *         or Error (status code 200)
      */
     @Operation(
-        operationId = "listenToCatalogCreateEvent",
-        summary = "Client listener for entity CatalogCreateEvent",
-        description = "Example of a client listener for receiving the notification CatalogCreateEvent",
-        tags = { "notification listeners (client side)" },
+        operationId = "individualDeleteEvent",
+        summary = "Client listener for entity IndividualDeleteEvent",
+        description = "Example of a client listener for receiving the notification IndividualDeleteEvent",
+        tags = { "notification listener" },
         responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
+            @ApiResponse(responseCode = "204", description = "Notified"),
+            @ApiResponse(responseCode = "default", description = "Error", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/listener/catalogCreateEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
+        value = "/listener/individualDeleteEvent",
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     
-    default ResponseEntity<EventSubscription> listenToCatalogCreateEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody CatalogCreateEvent data
+    default ResponseEntity<Void> individualDeleteEvent(
+        @Parameter(name = "IndividualDeleteEvent", description = "Individual delete Event payload", required = true) @Valid @RequestBody IndividualDeleteEvent individualDeleteEvent
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"@schemaLocation\" : \"@schemaLocation\", \"message\" : \"message\", \"referenceError\" : \"referenceError\", \"status\" : \"status\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
             }
@@ -379,101 +182,40 @@ public interface ListenerApi {
 
 
     /**
-     * POST /listener/catalogDeleteEvent : Client listener for entity CatalogDeleteEvent
-     * Example of a client listener for receiving the notification CatalogDeleteEvent
+     * POST /listener/individualStateChangeEvent : Client listener for entity IndividualStateChangeEvent
+     * Example of a client listener for receiving the notification IndividualStateChangeEvent
      *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
+     * @param individualStateChangeEvent Individual stateChange Event payload (required)
+     * @return Notified (status code 204)
+     *         or Error (status code 200)
      */
     @Operation(
-        operationId = "listenToCatalogDeleteEvent",
-        summary = "Client listener for entity CatalogDeleteEvent",
-        description = "Example of a client listener for receiving the notification CatalogDeleteEvent",
-        tags = { "notification listeners (client side)" },
+        operationId = "individualStateChangeEvent",
+        summary = "Client listener for entity IndividualStateChangeEvent",
+        description = "Example of a client listener for receiving the notification IndividualStateChangeEvent",
+        tags = { "notification listener" },
         responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
+            @ApiResponse(responseCode = "204", description = "Notified"),
+            @ApiResponse(responseCode = "default", description = "Error", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/listener/catalogDeleteEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
+        value = "/listener/individualStateChangeEvent",
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     
-    default ResponseEntity<EventSubscription> listenToCatalogDeleteEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody CatalogDeleteEvent data
+    default ResponseEntity<Void> individualStateChangeEvent(
+        @Parameter(name = "IndividualStateChangeEvent", description = "Individual stateChange Event payload", required = true) @Valid @RequestBody IndividualStateChangeEvent individualStateChangeEvent
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"@schemaLocation\" : \"@schemaLocation\", \"message\" : \"message\", \"referenceError\" : \"referenceError\", \"status\" : \"status\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
             }
@@ -484,101 +226,40 @@ public interface ListenerApi {
 
 
     /**
-     * POST /listener/catalogStateChangeEvent : Client listener for entity CatalogStateChangeEvent
-     * Example of a client listener for receiving the notification CatalogStateChangeEvent
+     * POST /listener/organizationAttributeValueChangeEvent : Client listener for entity OrganizationAttributeValueChangeEvent
+     * Example of a client listener for receiving the notification OrganizationAttributeValueChangeEvent
      *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
+     * @param organizationAttributeValueChangeEvent Organization attributeValueChange Event payload (required)
+     * @return Notified (status code 204)
+     *         or Error (status code 200)
      */
     @Operation(
-        operationId = "listenToCatalogStateChangeEvent",
-        summary = "Client listener for entity CatalogStateChangeEvent",
-        description = "Example of a client listener for receiving the notification CatalogStateChangeEvent",
-        tags = { "notification listeners (client side)" },
+        operationId = "organizationAttributeValueChangeEvent",
+        summary = "Client listener for entity OrganizationAttributeValueChangeEvent",
+        description = "Example of a client listener for receiving the notification OrganizationAttributeValueChangeEvent",
+        tags = { "notification listener" },
         responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
+            @ApiResponse(responseCode = "204", description = "Notified"),
+            @ApiResponse(responseCode = "default", description = "Error", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/listener/catalogStateChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
+        value = "/listener/organizationAttributeValueChangeEvent",
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     
-    default ResponseEntity<EventSubscription> listenToCatalogStateChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody CatalogStateChangeEvent data
+    default ResponseEntity<Void> organizationAttributeValueChangeEvent(
+        @Parameter(name = "OrganizationAttributeValueChangeEvent", description = "Organization attributeValueChange Event payload", required = true) @Valid @RequestBody OrganizationAttributeValueChangeEvent organizationAttributeValueChangeEvent
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"@schemaLocation\" : \"@schemaLocation\", \"message\" : \"message\", \"referenceError\" : \"referenceError\", \"status\" : \"status\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
             }
@@ -589,101 +270,40 @@ public interface ListenerApi {
 
 
     /**
-     * POST /listener/categoryAttributeValueChangeEvent : Client listener for entity CategoryAttributeValueChangeEvent
-     * Example of a client listener for receiving the notification CategoryAttributeValueChangeEvent
+     * POST /listener/organizationCreateEvent : Client listener for entity OrganizationCreateEvent
+     * Example of a client listener for receiving the notification OrganizationCreateEvent
      *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
+     * @param organizationCreateEvent Organization create Event payload (required)
+     * @return Notified (status code 204)
+     *         or Error (status code 200)
      */
     @Operation(
-        operationId = "listenToCategoryAttributeValueChangeEvent",
-        summary = "Client listener for entity CategoryAttributeValueChangeEvent",
-        description = "Example of a client listener for receiving the notification CategoryAttributeValueChangeEvent",
-        tags = { "notification listeners (client side)" },
+        operationId = "organizationCreateEvent",
+        summary = "Client listener for entity OrganizationCreateEvent",
+        description = "Example of a client listener for receiving the notification OrganizationCreateEvent",
+        tags = { "notification listener" },
         responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
+            @ApiResponse(responseCode = "204", description = "Notified"),
+            @ApiResponse(responseCode = "default", description = "Error", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/listener/categoryAttributeValueChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
+        value = "/listener/organizationCreateEvent",
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     
-    default ResponseEntity<EventSubscription> listenToCategoryAttributeValueChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody CategoryAttributeValueChangeEvent data
+    default ResponseEntity<Void> organizationCreateEvent(
+        @Parameter(name = "OrganizationCreateEvent", description = "Organization create Event payload", required = true) @Valid @RequestBody OrganizationCreateEvent organizationCreateEvent
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"@schemaLocation\" : \"@schemaLocation\", \"message\" : \"message\", \"referenceError\" : \"referenceError\", \"status\" : \"status\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
             }
@@ -694,101 +314,40 @@ public interface ListenerApi {
 
 
     /**
-     * POST /listener/categoryCreateEvent : Client listener for entity CategoryCreateEvent
-     * Example of a client listener for receiving the notification CategoryCreateEvent
+     * POST /listener/organizationDeleteEvent : Client listener for entity OrganizationDeleteEvent
+     * Example of a client listener for receiving the notification OrganizationDeleteEvent
      *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
+     * @param organizationDeleteEvent Organization delete Event payload (required)
+     * @return Notified (status code 204)
+     *         or Error (status code 200)
      */
     @Operation(
-        operationId = "listenToCategoryCreateEvent",
-        summary = "Client listener for entity CategoryCreateEvent",
-        description = "Example of a client listener for receiving the notification CategoryCreateEvent",
-        tags = { "notification listeners (client side)" },
+        operationId = "organizationDeleteEvent",
+        summary = "Client listener for entity OrganizationDeleteEvent",
+        description = "Example of a client listener for receiving the notification OrganizationDeleteEvent",
+        tags = { "notification listener" },
         responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
+            @ApiResponse(responseCode = "204", description = "Notified"),
+            @ApiResponse(responseCode = "default", description = "Error", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/listener/categoryCreateEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
+        value = "/listener/organizationDeleteEvent",
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     
-    default ResponseEntity<EventSubscription> listenToCategoryCreateEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody CategoryCreateEvent data
+    default ResponseEntity<Void> organizationDeleteEvent(
+        @Parameter(name = "OrganizationDeleteEvent", description = "Organization delete Event payload", required = true) @Valid @RequestBody OrganizationDeleteEvent organizationDeleteEvent
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"@schemaLocation\" : \"@schemaLocation\", \"message\" : \"message\", \"referenceError\" : \"referenceError\", \"status\" : \"status\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
             }
@@ -799,1466 +358,40 @@ public interface ListenerApi {
 
 
     /**
-     * POST /listener/categoryDeleteEvent : Client listener for entity CategoryDeleteEvent
-     * Example of a client listener for receiving the notification CategoryDeleteEvent
+     * POST /listener/organizationStateChangeEvent : Client listener for entity OrganizationStateChangeEvent
+     * Example of a client listener for receiving the notification OrganizationStateChangeEvent
      *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
+     * @param organizationStateChangeEvent Organization stateChange Event payload (required)
+     * @return Notified (status code 204)
+     *         or Error (status code 200)
      */
     @Operation(
-        operationId = "listenToCategoryDeleteEvent",
-        summary = "Client listener for entity CategoryDeleteEvent",
-        description = "Example of a client listener for receiving the notification CategoryDeleteEvent",
-        tags = { "notification listeners (client side)" },
+        operationId = "organizationStateChangeEvent",
+        summary = "Client listener for entity OrganizationStateChangeEvent",
+        description = "Example of a client listener for receiving the notification OrganizationStateChangeEvent",
+        tags = { "notification listener" },
         responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
+            @ApiResponse(responseCode = "204", description = "Notified"),
+            @ApiResponse(responseCode = "default", description = "Error", content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = Error.class))
             })
         }
     )
     @RequestMapping(
         method = RequestMethod.POST,
-        value = "/listener/categoryDeleteEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
+        value = "/listener/organizationStateChangeEvent",
+        produces = { "application/json" },
+        consumes = { "application/json" }
     )
     
-    default ResponseEntity<EventSubscription> listenToCategoryDeleteEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody CategoryDeleteEvent data
+    default ResponseEntity<Void> organizationStateChangeEvent(
+        @Parameter(name = "OrganizationStateChangeEvent", description = "Organization stateChange Event payload", required = true) @Valid @RequestBody OrganizationStateChangeEvent organizationStateChangeEvent
     ) {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/categoryStateChangeEvent : Client listener for entity CategoryStateChangeEvent
-     * Example of a client listener for receiving the notification CategoryStateChangeEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToCategoryStateChangeEvent",
-        summary = "Client listener for entity CategoryStateChangeEvent",
-        description = "Example of a client listener for receiving the notification CategoryStateChangeEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/categoryStateChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToCategoryStateChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody CategoryStateChangeEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productOfferingAttributeValueChangeEvent : Client listener for entity ProductOfferingAttributeValueChangeEvent
-     * Example of a client listener for receiving the notification ProductOfferingAttributeValueChangeEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductOfferingAttributeValueChangeEvent",
-        summary = "Client listener for entity ProductOfferingAttributeValueChangeEvent",
-        description = "Example of a client listener for receiving the notification ProductOfferingAttributeValueChangeEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productOfferingAttributeValueChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductOfferingAttributeValueChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductOfferingAttributeValueChangeEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productOfferingCreateEvent : Client listener for entity ProductOfferingCreateEvent
-     * Example of a client listener for receiving the notification ProductOfferingCreateEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductOfferingCreateEvent",
-        summary = "Client listener for entity ProductOfferingCreateEvent",
-        description = "Example of a client listener for receiving the notification ProductOfferingCreateEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productOfferingCreateEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductOfferingCreateEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductOfferingCreateEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productOfferingDeleteEvent : Client listener for entity ProductOfferingDeleteEvent
-     * Example of a client listener for receiving the notification ProductOfferingDeleteEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductOfferingDeleteEvent",
-        summary = "Client listener for entity ProductOfferingDeleteEvent",
-        description = "Example of a client listener for receiving the notification ProductOfferingDeleteEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productOfferingDeleteEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductOfferingDeleteEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductOfferingDeleteEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productOfferingPriceAttributeValueChangeEvent : Client listener for entity ProductOfferingPriceAttributeValueChangeEvent
-     * Example of a client listener for receiving the notification ProductOfferingPriceAttributeValueChangeEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductOfferingPriceAttributeValueChangeEvent",
-        summary = "Client listener for entity ProductOfferingPriceAttributeValueChangeEvent",
-        description = "Example of a client listener for receiving the notification ProductOfferingPriceAttributeValueChangeEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productOfferingPriceAttributeValueChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductOfferingPriceAttributeValueChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductOfferingPriceAttributeValueChangeEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productOfferingPriceCreateEvent : Client listener for entity ProductOfferingPriceCreateEvent
-     * Example of a client listener for receiving the notification ProductOfferingPriceCreateEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductOfferingPriceCreateEvent",
-        summary = "Client listener for entity ProductOfferingPriceCreateEvent",
-        description = "Example of a client listener for receiving the notification ProductOfferingPriceCreateEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productOfferingPriceCreateEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductOfferingPriceCreateEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductOfferingPriceCreateEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productOfferingPriceDeleteEvent : Client listener for entity ProductOfferingPriceDeleteEvent
-     * Example of a client listener for receiving the notification ProductOfferingPriceDeleteEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductOfferingPriceDeleteEvent",
-        summary = "Client listener for entity ProductOfferingPriceDeleteEvent",
-        description = "Example of a client listener for receiving the notification ProductOfferingPriceDeleteEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productOfferingPriceDeleteEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductOfferingPriceDeleteEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductOfferingPriceDeleteEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productOfferingPriceStateChangeEvent : Client listener for entity ProductOfferingPriceStateChangeEvent
-     * Example of a client listener for receiving the notification ProductOfferingPriceStateChangeEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductOfferingPriceStateChangeEvent",
-        summary = "Client listener for entity ProductOfferingPriceStateChangeEvent",
-        description = "Example of a client listener for receiving the notification ProductOfferingPriceStateChangeEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productOfferingPriceStateChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductOfferingPriceStateChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductOfferingPriceStateChangeEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productOfferingStateChangeEvent : Client listener for entity ProductOfferingStateChangeEvent
-     * Example of a client listener for receiving the notification ProductOfferingStateChangeEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductOfferingStateChangeEvent",
-        summary = "Client listener for entity ProductOfferingStateChangeEvent",
-        description = "Example of a client listener for receiving the notification ProductOfferingStateChangeEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productOfferingStateChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductOfferingStateChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductOfferingStateChangeEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productSpecificationAttributeValueChangeEvent : Client listener for entity ProductSpecificationAttributeValueChangeEvent
-     * Example of a client listener for receiving the notification ProductSpecificationAttributeValueChangeEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductSpecificationAttributeValueChangeEvent",
-        summary = "Client listener for entity ProductSpecificationAttributeValueChangeEvent",
-        description = "Example of a client listener for receiving the notification ProductSpecificationAttributeValueChangeEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productSpecificationAttributeValueChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductSpecificationAttributeValueChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductSpecificationAttributeValueChangeEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productSpecificationCreateEvent : Client listener for entity ProductSpecificationCreateEvent
-     * Example of a client listener for receiving the notification ProductSpecificationCreateEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductSpecificationCreateEvent",
-        summary = "Client listener for entity ProductSpecificationCreateEvent",
-        description = "Example of a client listener for receiving the notification ProductSpecificationCreateEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productSpecificationCreateEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductSpecificationCreateEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductSpecificationCreateEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productSpecificationDeleteEvent : Client listener for entity ProductSpecificationDeleteEvent
-     * Example of a client listener for receiving the notification ProductSpecificationDeleteEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductSpecificationDeleteEvent",
-        summary = "Client listener for entity ProductSpecificationDeleteEvent",
-        description = "Example of a client listener for receiving the notification ProductSpecificationDeleteEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productSpecificationDeleteEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductSpecificationDeleteEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductSpecificationDeleteEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
-    }
-
-
-    /**
-     * POST /listener/productSpecificationStateChangeEvent : Client listener for entity ProductSpecificationStateChangeEvent
-     * Example of a client listener for receiving the notification ProductSpecificationStateChangeEvent
-     *
-     * @param data The event data (required)
-     * @return Notified (status code 201)
-     *         or Bad Request (status code 400)
-     *         or Unauthorized (status code 401)
-     *         or Forbidden (status code 403)
-     *         or Not Found (status code 404)
-     *         or Method Not allowed (status code 405)
-     *         or Conflict (status code 409)
-     *         or Internal Server Error (status code 500)
-     */
-    @Operation(
-        operationId = "listenToProductSpecificationStateChangeEvent",
-        summary = "Client listener for entity ProductSpecificationStateChangeEvent",
-        description = "Example of a client listener for receiving the notification ProductSpecificationStateChangeEvent",
-        tags = { "notification listeners (client side)" },
-        responses = {
-            @ApiResponse(responseCode = "201", description = "Notified", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = EventSubscription.class))
-            }),
-            @ApiResponse(responseCode = "400", description = "Bad Request", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "401", description = "Unauthorized", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "403", description = "Forbidden", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "404", description = "Not Found", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "405", description = "Method Not allowed", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "409", description = "Conflict", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            }),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error", content = {
-                @Content(mediaType = "application/json;charset=utf-8", schema = @Schema(implementation = Error.class))
-            })
-        }
-    )
-    @RequestMapping(
-        method = RequestMethod.POST,
-        value = "/listener/productSpecificationStateChangeEvent",
-        produces = { "application/json;charset=utf-8" },
-        consumes = { "application/json;charset=utf-8" }
-    )
-    
-    default ResponseEntity<EventSubscription> listenToProductSpecificationStateChangeEvent(
-        @Parameter(name = "data", description = "The event data", required = true) @Valid @RequestBody ProductSpecificationStateChangeEvent data
-    ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"query\" : \"query\", \"callback\" : \"callback\", \"id\" : \"id\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
-                    break;
-                }
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"message\" : \"message\", \"referenceError\" : \"https://openapi-generator.tech\", \"@schemaLocation\" : \"https://openapi-generator.tech\", \"status\" : \"status\" }";
-                    ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
+                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
+                    String exampleString = "{ \"reason\" : \"reason\", \"code\" : \"code\", \"@baseType\" : \"@baseType\", \"@type\" : \"@type\", \"@schemaLocation\" : \"@schemaLocation\", \"message\" : \"message\", \"referenceError\" : \"referenceError\", \"status\" : \"status\" }";
+                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
                     break;
                 }
             }

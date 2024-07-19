@@ -2,9 +2,11 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import java.net.URI;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -20,8 +22,15 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "Error", description = "Used when an API throws an Error, typically with a HTTP error response-code (3xx, 4xx, 5xx)")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
 public class Error {
+
+  private String atType;
+
+  private String atBaseType;
+
+  private String atSchemaLocation;
 
   private String code;
 
@@ -31,13 +40,7 @@ public class Error {
 
   private String status;
 
-  private URI referenceError;
-
-  private String atBaseType;
-
-  private URI atSchemaLocation;
-
-  private String atType;
+  private String referenceError;
 
   public Error() {
     super();
@@ -46,9 +49,70 @@ public class Error {
   /**
    * Constructor with only required parameters
    */
-  public Error(String code, String reason) {
+  public Error(String atType, String code, String reason) {
+    this.atType = atType;
     this.code = code;
     this.reason = reason;
+  }
+
+  public Error atType(String atType) {
+    this.atType = atType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the sub-class Extensible name
+   * @return atType
+   */
+  @NotNull 
+  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("@type")
+  public String getAtType() {
+    return atType;
+  }
+
+  public void setAtType(String atType) {
+    this.atType = atType;
+  }
+
+  public Error atBaseType(String atBaseType) {
+    this.atBaseType = atBaseType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the super-class
+   * @return atBaseType
+   */
+  
+  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@baseType")
+  public String getAtBaseType() {
+    return atBaseType;
+  }
+
+  public void setAtBaseType(String atBaseType) {
+    this.atBaseType = atBaseType;
+  }
+
+  public Error atSchemaLocation(String atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
+    return this;
+  }
+
+  /**
+   * A URI to a JSON-Schema file that defines additional attributes and relationships
+   * @return atSchemaLocation
+   */
+  
+  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@schemaLocation")
+  public String getAtSchemaLocation() {
+    return atSchemaLocation;
+  }
+
+  public void setAtSchemaLocation(String atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
   }
 
   public Error code(String code) {
@@ -131,7 +195,7 @@ public class Error {
     this.status = status;
   }
 
-  public Error referenceError(URI referenceError) {
+  public Error referenceError(String referenceError) {
     this.referenceError = referenceError;
     return this;
   }
@@ -140,75 +204,15 @@ public class Error {
    * URI of documentation describing the error.
    * @return referenceError
    */
-  @Valid 
+  
   @Schema(name = "referenceError", description = "URI of documentation describing the error.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("referenceError")
-  public URI getReferenceError() {
+  public String getReferenceError() {
     return referenceError;
   }
 
-  public void setReferenceError(URI referenceError) {
+  public void setReferenceError(String referenceError) {
     this.referenceError = referenceError;
-  }
-
-  public Error atBaseType(String atBaseType) {
-    this.atBaseType = atBaseType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the super-class.
-   * @return atBaseType
-   */
-  
-  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
-  public String getAtBaseType() {
-    return atBaseType;
-  }
-
-  public void setAtBaseType(String atBaseType) {
-    this.atBaseType = atBaseType;
-  }
-
-  public Error atSchemaLocation(URI atSchemaLocation) {
-    this.atSchemaLocation = atSchemaLocation;
-    return this;
-  }
-
-  /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return atSchemaLocation
-   */
-  @Valid 
-  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
-  public URI getAtSchemaLocation() {
-    return atSchemaLocation;
-  }
-
-  public void setAtSchemaLocation(URI atSchemaLocation) {
-    this.atSchemaLocation = atSchemaLocation;
-  }
-
-  public Error atType(String atType) {
-    this.atType = atType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class entity name.
-   * @return atType
-   */
-  
-  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class entity name.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@type")
-  public String getAtType() {
-    return atType;
-  }
-
-  public void setAtType(String atType) {
-    this.atType = atType;
   }
 
   @Override
@@ -220,33 +224,33 @@ public class Error {
       return false;
     }
     Error error = (Error) o;
-    return Objects.equals(this.code, error.code) &&
+    return Objects.equals(this.atType, error.atType) &&
+        Objects.equals(this.atBaseType, error.atBaseType) &&
+        Objects.equals(this.atSchemaLocation, error.atSchemaLocation) &&
+        Objects.equals(this.code, error.code) &&
         Objects.equals(this.reason, error.reason) &&
         Objects.equals(this.message, error.message) &&
         Objects.equals(this.status, error.status) &&
-        Objects.equals(this.referenceError, error.referenceError) &&
-        Objects.equals(this.atBaseType, error.atBaseType) &&
-        Objects.equals(this.atSchemaLocation, error.atSchemaLocation) &&
-        Objects.equals(this.atType, error.atType);
+        Objects.equals(this.referenceError, error.referenceError);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(code, reason, message, status, referenceError, atBaseType, atSchemaLocation, atType);
+    return Objects.hash(atType, atBaseType, atSchemaLocation, code, reason, message, status, referenceError);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Error {\n");
+    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
+    sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
+    sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    referenceError: ").append(toIndentedString(referenceError)).append("\n");
-    sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
-    sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
-    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
     sb.append("}");
     return sb.toString();
   }

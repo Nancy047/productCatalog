@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: product-catalog
+  name: party
   namespace: default
   labels:
-    app: product-catalog
+    app: party
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: product-catalog
+      app: party
   template:
     metadata:
       labels:
-        app: product-catalog
+        app: party
     spec:
       containers:
-        - name: product-catalog
+        - name: party
           image: ""
           ports:
-            - containerPort: 8085
+            - containerPort: 8080
           

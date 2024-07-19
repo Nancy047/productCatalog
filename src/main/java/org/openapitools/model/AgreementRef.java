@@ -2,9 +2,11 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import java.net.URI;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -20,20 +22,21 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "AgreementRef", description = "Agreement reference. An agreement represents a contract or arrangement, either written or verbal and sometimes enforceable by law, such as a service level agreement or a customer price agreement. An agreement involves a number of other business entities, such as products, services, and resources and/or their specifications.")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
 public class AgreementRef {
 
-  private String id;
-
-  private URI href;
-
-  private String name;
+  private String atType;
 
   private String atBaseType;
 
-  private URI atSchemaLocation;
+  private String atSchemaLocation;
 
-  private String atType;
+  private String href;
+
+  private String id;
+
+  private String name;
 
   private String atReferredType;
 
@@ -44,68 +47,29 @@ public class AgreementRef {
   /**
    * Constructor with only required parameters
    */
-  public AgreementRef(String id) {
+  public AgreementRef(String atType, String id) {
+    this.atType = atType;
     this.id = id;
   }
 
-  public AgreementRef id(String id) {
-    this.id = id;
+  public AgreementRef atType(String atType) {
+    this.atType = atType;
     return this;
   }
 
   /**
-   * unique identifier
-   * @return id
+   * When sub-classing, this defines the sub-class Extensible name
+   * @return atType
    */
   @NotNull 
-  @Schema(name = "id", description = "unique identifier", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("id")
-  public String getId() {
-    return id;
+  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("@type")
+  public String getAtType() {
+    return atType;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public AgreementRef href(URI href) {
-    this.href = href;
-    return this;
-  }
-
-  /**
-   * Hyperlink reference
-   * @return href
-   */
-  @Valid 
-  @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
-  public URI getHref() {
-    return href;
-  }
-
-  public void setHref(URI href) {
-    this.href = href;
-  }
-
-  public AgreementRef name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the agreement
-   * @return name
-   */
-  
-  @Schema(name = "name", description = "Name of the agreement", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
+  public void setAtType(String atType) {
+    this.atType = atType;
   }
 
   public AgreementRef atBaseType(String atBaseType) {
@@ -128,7 +92,7 @@ public class AgreementRef {
     this.atBaseType = atBaseType;
   }
 
-  public AgreementRef atSchemaLocation(URI atSchemaLocation) {
+  public AgreementRef atSchemaLocation(String atSchemaLocation) {
     this.atSchemaLocation = atSchemaLocation;
     return this;
   }
@@ -137,35 +101,75 @@ public class AgreementRef {
    * A URI to a JSON-Schema file that defines additional attributes and relationships
    * @return atSchemaLocation
    */
-  @Valid 
+  
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("@schemaLocation")
-  public URI getAtSchemaLocation() {
+  public String getAtSchemaLocation() {
     return atSchemaLocation;
   }
 
-  public void setAtSchemaLocation(URI atSchemaLocation) {
+  public void setAtSchemaLocation(String atSchemaLocation) {
     this.atSchemaLocation = atSchemaLocation;
   }
 
-  public AgreementRef atType(String atType) {
-    this.atType = atType;
+  public AgreementRef href(String href) {
+    this.href = href;
     return this;
   }
 
   /**
-   * When sub-classing, this defines the sub-class Extensible name
-   * @return atType
+   * The URI of the referred entity.
+   * @return href
    */
   
-  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@type")
-  public String getAtType() {
-    return atType;
+  @Schema(name = "href", description = "The URI of the referred entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("href")
+  public String getHref() {
+    return href;
   }
 
-  public void setAtType(String atType) {
-    this.atType = atType;
+  public void setHref(String href) {
+    this.href = href;
+  }
+
+  public AgreementRef id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The identifier of the referred entity.
+   * @return id
+   */
+  @NotNull 
+  @Schema(name = "id", description = "The identifier of the referred entity.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public AgreementRef name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the referred entity.
+   * @return name
+   */
+  
+  @Schema(name = "name", description = "Name of the referred entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public AgreementRef atReferredType(String atReferredType) {
@@ -197,30 +201,30 @@ public class AgreementRef {
       return false;
     }
     AgreementRef agreementRef = (AgreementRef) o;
-    return Objects.equals(this.id, agreementRef.id) &&
-        Objects.equals(this.href, agreementRef.href) &&
-        Objects.equals(this.name, agreementRef.name) &&
+    return Objects.equals(this.atType, agreementRef.atType) &&
         Objects.equals(this.atBaseType, agreementRef.atBaseType) &&
         Objects.equals(this.atSchemaLocation, agreementRef.atSchemaLocation) &&
-        Objects.equals(this.atType, agreementRef.atType) &&
+        Objects.equals(this.href, agreementRef.href) &&
+        Objects.equals(this.id, agreementRef.id) &&
+        Objects.equals(this.name, agreementRef.name) &&
         Objects.equals(this.atReferredType, agreementRef.atReferredType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href, name, atBaseType, atSchemaLocation, atType, atReferredType);
+    return Objects.hash(atType, atBaseType, atSchemaLocation, href, id, name, atReferredType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AgreementRef {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    href: ").append(toIndentedString(href)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
     sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
     sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
-    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
+    sb.append("    href: ").append(toIndentedString(href)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    atReferredType: ").append(toIndentedString(atReferredType)).append("\n");
     sb.append("}");
     return sb.toString();

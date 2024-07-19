@@ -21,34 +21,14 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "TimePeriod", description = "A period of time, either as a deadline (endDateTime only) a startDateTime only, or both")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
 public class TimePeriod {
-
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-  private OffsetDateTime endDateTime;
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
   private OffsetDateTime startDateTime;
 
-  public TimePeriod endDateTime(OffsetDateTime endDateTime) {
-    this.endDateTime = endDateTime;
-    return this;
-  }
-
-  /**
-   * End of the time period, using IETC-RFC-3339 format
-   * @return endDateTime
-   */
-  @Valid 
-  @Schema(name = "endDateTime", example = "1985-04-12T23:20:50.520Z", description = "End of the time period, using IETC-RFC-3339 format", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("endDateTime")
-  public OffsetDateTime getEndDateTime() {
-    return endDateTime;
-  }
-
-  public void setEndDateTime(OffsetDateTime endDateTime) {
-    this.endDateTime = endDateTime;
-  }
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  private OffsetDateTime endDateTime;
 
   public TimePeriod startDateTime(OffsetDateTime startDateTime) {
     this.startDateTime = startDateTime;
@@ -70,6 +50,26 @@ public class TimePeriod {
     this.startDateTime = startDateTime;
   }
 
+  public TimePeriod endDateTime(OffsetDateTime endDateTime) {
+    this.endDateTime = endDateTime;
+    return this;
+  }
+
+  /**
+   * End of the time period, using IETC-RFC-3339 format
+   * @return endDateTime
+   */
+  @Valid 
+  @Schema(name = "endDateTime", example = "1985-04-12T23:20:50.520Z", description = "End of the time period, using IETC-RFC-3339 format", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("endDateTime")
+  public OffsetDateTime getEndDateTime() {
+    return endDateTime;
+  }
+
+  public void setEndDateTime(OffsetDateTime endDateTime) {
+    this.endDateTime = endDateTime;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -79,21 +79,21 @@ public class TimePeriod {
       return false;
     }
     TimePeriod timePeriod = (TimePeriod) o;
-    return Objects.equals(this.endDateTime, timePeriod.endDateTime) &&
-        Objects.equals(this.startDateTime, timePeriod.startDateTime);
+    return Objects.equals(this.startDateTime, timePeriod.startDateTime) &&
+        Objects.equals(this.endDateTime, timePeriod.endDateTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(endDateTime, startDateTime);
+    return Objects.hash(startDateTime, endDateTime);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class TimePeriod {\n");
-    sb.append("    endDateTime: ").append(toIndentedString(endDateTime)).append("\n");
     sb.append("    startDateTime: ").append(toIndentedString(startDateTime)).append("\n");
+    sb.append("    endDateTime: ").append(toIndentedString(endDateTime)).append("\n");
     sb.append("}");
     return sb.toString();
   }

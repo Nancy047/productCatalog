@@ -4,7 +4,6 @@ import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import java.net.URI;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -20,12 +19,32 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "Addressable", description = "Base schema for adressable entities")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
 public class Addressable {
+
+  private String href;
 
   private String id;
 
-  private URI href;
+  public Addressable href(String href) {
+    this.href = href;
+    return this;
+  }
+
+  /**
+   * Hyperlink reference
+   * @return href
+   */
+  
+  @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("href")
+  public String getHref() {
+    return href;
+  }
+
+  public void setHref(String href) {
+    this.href = href;
+  }
 
   public Addressable id(String id) {
     this.id = id;
@@ -47,26 +66,6 @@ public class Addressable {
     this.id = id;
   }
 
-  public Addressable href(URI href) {
-    this.href = href;
-    return this;
-  }
-
-  /**
-   * Hyperlink reference
-   * @return href
-   */
-  @Valid 
-  @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
-  public URI getHref() {
-    return href;
-  }
-
-  public void setHref(URI href) {
-    this.href = href;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -76,21 +75,21 @@ public class Addressable {
       return false;
     }
     Addressable addressable = (Addressable) o;
-    return Objects.equals(this.id, addressable.id) &&
-        Objects.equals(this.href, addressable.href);
+    return Objects.equals(this.href, addressable.href) &&
+        Objects.equals(this.id, addressable.id);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href);
+    return Objects.hash(href, id);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Addressable {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("}");
     return sb.toString();
   }

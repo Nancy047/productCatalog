@@ -2,9 +2,11 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import java.net.URI;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.openapitools.jackson.nullable.JsonNullable;
 import java.time.OffsetDateTime;
 import javax.validation.Valid;
@@ -16,30 +18,30 @@ import java.util.*;
 import javax.annotation.Generated;
 
 /**
- * Attachment reference. An attachment complements the description of an element (for instance a product) through video, pictures
+ * AttachmentRef
  */
 
-@Schema(name = "AttachmentRef", description = "Attachment reference. An attachment complements the description of an element (for instance a product) through video, pictures")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
-public class AttachmentRef {
 
-  private String id;
-
-  private URI href;
-
-  private String description;
-
-  private String name;
-
-  private URI url;
-
-  private String atBaseType;
-
-  private URI atSchemaLocation;
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
+public class AttachmentRef implements AttachmentRefOrValue {
 
   private String atType;
 
+  private String atBaseType;
+
+  private String atSchemaLocation;
+
+  private String href;
+
+  private String id;
+
+  private String name;
+
   private String atReferredType;
+
+  private String description;
+
+  private String url;
 
   public AttachmentRef() {
     super();
@@ -48,108 +50,29 @@ public class AttachmentRef {
   /**
    * Constructor with only required parameters
    */
-  public AttachmentRef(String id) {
+  public AttachmentRef(String atType, String id) {
+    this.atType = atType;
     this.id = id;
   }
 
-  public AttachmentRef id(String id) {
-    this.id = id;
+  public AttachmentRef atType(String atType) {
+    this.atType = atType;
     return this;
   }
 
   /**
-   * Unique-Identifier for this attachment
-   * @return id
+   * When sub-classing, this defines the sub-class Extensible name
+   * @return atType
    */
   @NotNull 
-  @Schema(name = "id", description = "Unique-Identifier for this attachment", requiredMode = Schema.RequiredMode.REQUIRED)
-  @JsonProperty("id")
-  public String getId() {
-    return id;
+  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("@type")
+  public String getAtType() {
+    return atType;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public AttachmentRef href(URI href) {
-    this.href = href;
-    return this;
-  }
-
-  /**
-   * URL serving as reference for the attachment resource
-   * @return href
-   */
-  @Valid 
-  @Schema(name = "href", description = "URL serving as reference for the attachment resource", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
-  public URI getHref() {
-    return href;
-  }
-
-  public void setHref(URI href) {
-    this.href = href;
-  }
-
-  public AttachmentRef description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * A narrative text describing the content of the attachment
-   * @return description
-   */
-  
-  @Schema(name = "description", description = "A narrative text describing the content of the attachment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public AttachmentRef name(String name) {
-    this.name = name;
-    return this;
-  }
-
-  /**
-   * Name of the related entity.
-   * @return name
-   */
-  
-  @Schema(name = "name", description = "Name of the related entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("name")
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public AttachmentRef url(URI url) {
-    this.url = url;
-    return this;
-  }
-
-  /**
-   * Link to the attachment media/content
-   * @return url
-   */
-  @Valid 
-  @Schema(name = "url", description = "Link to the attachment media/content", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("url")
-  public URI getUrl() {
-    return url;
-  }
-
-  public void setUrl(URI url) {
-    this.url = url;
+  public void setAtType(String atType) {
+    this.atType = atType;
   }
 
   public AttachmentRef atBaseType(String atBaseType) {
@@ -172,7 +95,7 @@ public class AttachmentRef {
     this.atBaseType = atBaseType;
   }
 
-  public AttachmentRef atSchemaLocation(URI atSchemaLocation) {
+  public AttachmentRef atSchemaLocation(String atSchemaLocation) {
     this.atSchemaLocation = atSchemaLocation;
     return this;
   }
@@ -181,35 +104,75 @@ public class AttachmentRef {
    * A URI to a JSON-Schema file that defines additional attributes and relationships
    * @return atSchemaLocation
    */
-  @Valid 
+  
   @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("@schemaLocation")
-  public URI getAtSchemaLocation() {
+  public String getAtSchemaLocation() {
     return atSchemaLocation;
   }
 
-  public void setAtSchemaLocation(URI atSchemaLocation) {
+  public void setAtSchemaLocation(String atSchemaLocation) {
     this.atSchemaLocation = atSchemaLocation;
   }
 
-  public AttachmentRef atType(String atType) {
-    this.atType = atType;
+  public AttachmentRef href(String href) {
+    this.href = href;
     return this;
   }
 
   /**
-   * When sub-classing, this defines the sub-class Extensible name
-   * @return atType
+   * The URI of the referred entity.
+   * @return href
    */
   
-  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@type")
-  public String getAtType() {
-    return atType;
+  @Schema(name = "href", description = "The URI of the referred entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("href")
+  public String getHref() {
+    return href;
   }
 
-  public void setAtType(String atType) {
-    this.atType = atType;
+  public void setHref(String href) {
+    this.href = href;
+  }
+
+  public AttachmentRef id(String id) {
+    this.id = id;
+    return this;
+  }
+
+  /**
+   * The identifier of the referred entity.
+   * @return id
+   */
+  @NotNull 
+  @Schema(name = "id", description = "The identifier of the referred entity.", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("id")
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public AttachmentRef name(String name) {
+    this.name = name;
+    return this;
+  }
+
+  /**
+   * Name of the referred entity.
+   * @return name
+   */
+  
+  @Schema(name = "name", description = "Name of the referred entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("name")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public AttachmentRef atReferredType(String atReferredType) {
@@ -232,6 +195,46 @@ public class AttachmentRef {
     this.atReferredType = atReferredType;
   }
 
+  public AttachmentRef description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * A narrative text describing the content of the attachment
+   * @return description
+   */
+  
+  @Schema(name = "description", description = "A narrative text describing the content of the attachment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("description")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public AttachmentRef url(String url) {
+    this.url = url;
+    return this;
+  }
+
+  /**
+   * Link to the attachment media/content
+   * @return url
+   */
+  
+  @Schema(name = "url", description = "Link to the attachment media/content", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("url")
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -241,35 +244,35 @@ public class AttachmentRef {
       return false;
     }
     AttachmentRef attachmentRef = (AttachmentRef) o;
-    return Objects.equals(this.id, attachmentRef.id) &&
-        Objects.equals(this.href, attachmentRef.href) &&
-        Objects.equals(this.description, attachmentRef.description) &&
-        Objects.equals(this.name, attachmentRef.name) &&
-        Objects.equals(this.url, attachmentRef.url) &&
+    return Objects.equals(this.atType, attachmentRef.atType) &&
         Objects.equals(this.atBaseType, attachmentRef.atBaseType) &&
         Objects.equals(this.atSchemaLocation, attachmentRef.atSchemaLocation) &&
-        Objects.equals(this.atType, attachmentRef.atType) &&
-        Objects.equals(this.atReferredType, attachmentRef.atReferredType);
+        Objects.equals(this.href, attachmentRef.href) &&
+        Objects.equals(this.id, attachmentRef.id) &&
+        Objects.equals(this.name, attachmentRef.name) &&
+        Objects.equals(this.atReferredType, attachmentRef.atReferredType) &&
+        Objects.equals(this.description, attachmentRef.description) &&
+        Objects.equals(this.url, attachmentRef.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href, description, name, url, atBaseType, atSchemaLocation, atType, atReferredType);
+    return Objects.hash(atType, atBaseType, atSchemaLocation, href, id, name, atReferredType, description, url);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AttachmentRef {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    href: ").append(toIndentedString(href)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
     sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
     sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
-    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
+    sb.append("    href: ").append(toIndentedString(href)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    atReferredType: ").append(toIndentedString(atReferredType)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
   }

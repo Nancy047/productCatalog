@@ -1,8 +1,8 @@
 package org.openapitools.api;
 
 import org.openapitools.model.Error;
-import org.openapitools.model.EventSubscription;
-import org.openapitools.model.EventSubscriptionInput;
+import org.openapitools.model.Hub;
+import org.openapitools.model.HubFVO;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +22,10 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
 @Controller
 @CrossOrigin(origins = "*")
-@RequestMapping("${openapi.productCatalogManagement.base-path:/tmf-api/productCatalogManagement/v4}")
- 
+@RequestMapping("${openapi.partyManagement.base-path:/partyManagement/v5}")
 public class HubApiController implements HubApi {
 
     private final NativeWebRequest request;

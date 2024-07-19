@@ -19,10 +19,10 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "Quantity", description = "An amount in a given unit")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
 public class Quantity {
 
-  private Float amount = 1.0f;
+  private Float amount = 1f;
 
   private String units;
 

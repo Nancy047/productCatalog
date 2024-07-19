@@ -2,10 +2,10 @@ name: Deploy to GKE
 
 on:
   push:
-    branches: [ main ]
+    branches: [ party ]
 
 env:
-  GCP_APP_NAME: product-catalog
+  GCP_APP_NAME: party
   PROJECT_ID: lumen-b-ctl-047
   GCP_CLUSTER_NAME: my-gke-cluster
   GCP_CLUSTER_LOCATION: us-central1-c

@@ -2,9 +2,11 @@ package org.openapitools.model;
 
 import java.net.URI;
 import java.util.Objects;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import java.net.URI;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import org.openapitools.model.Quantity;
 import org.openapitools.model.TimePeriod;
 import org.openapitools.jackson.nullable.JsonNullable;
@@ -18,38 +20,129 @@ import java.util.*;
 import javax.annotation.Generated;
 
 /**
- * Complements the description of an element (for instance a product) through video, pictures...
+ * Attachment
  */
 
-@Schema(name = "Attachment", description = "Complements the description of an element (for instance a product) through video, pictures...")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
-public class Attachment {
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-08T19:14:52.617209500+05:30[Asia/Calcutta]", comments = "Generator version: 7.7.0")
+public class Attachment implements AttachmentRefOrValue {
+
+  private String atType;
+
+  private String atBaseType;
+
+  private String atSchemaLocation;
+
+  private String href;
 
   private String id;
 
-  private URI href;
-
-  private String attachmentType;
-
-  private String content;
+  private String name;
 
   private String description;
 
-  private String mimeType;
+  private String url;
 
-  private String name;
-
-  private URI url;
+  private String content;
 
   private Quantity size;
 
   private TimePeriod validFor;
 
-  private String atBaseType;
+  private String attachmentType;
 
-  private URI atSchemaLocation;
+  private String mimeType;
 
-  private String atType;
+  public Attachment() {
+    super();
+  }
+
+  /**
+   * Constructor with only required parameters
+   */
+  public Attachment(String atType) {
+    this.atType = atType;
+  }
+
+  public Attachment atType(String atType) {
+    this.atType = atType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the sub-class Extensible name
+   * @return atType
+   */
+  @NotNull 
+  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.REQUIRED)
+  @JsonProperty("@type")
+  public String getAtType() {
+    return atType;
+  }
+
+  public void setAtType(String atType) {
+    this.atType = atType;
+  }
+
+  public Attachment atBaseType(String atBaseType) {
+    this.atBaseType = atBaseType;
+    return this;
+  }
+
+  /**
+   * When sub-classing, this defines the super-class
+   * @return atBaseType
+   */
+  
+  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@baseType")
+  public String getAtBaseType() {
+    return atBaseType;
+  }
+
+  public void setAtBaseType(String atBaseType) {
+    this.atBaseType = atBaseType;
+  }
+
+  public Attachment atSchemaLocation(String atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
+    return this;
+  }
+
+  /**
+   * A URI to a JSON-Schema file that defines additional attributes and relationships
+   * @return atSchemaLocation
+   */
+  
+  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("@schemaLocation")
+  public String getAtSchemaLocation() {
+    return atSchemaLocation;
+  }
+
+  public void setAtSchemaLocation(String atSchemaLocation) {
+    this.atSchemaLocation = atSchemaLocation;
+  }
+
+  public Attachment href(String href) {
+    this.href = href;
+    return this;
+  }
+
+  /**
+   * Hyperlink reference
+   * @return href
+   */
+  
+  @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("href")
+  public String getHref() {
+    return href;
+  }
+
+  public void setHref(String href) {
+    this.href = href;
+  }
 
   public Attachment id(String id) {
     this.id = id;
@@ -57,11 +150,11 @@ public class Attachment {
   }
 
   /**
-   * Unique identifier for this particular attachment
+   * unique identifier
    * @return id
    */
   
-  @Schema(name = "id", example = "4aafacbd-11ff-4dc8-b445-305f2215715f", description = "Unique identifier for this particular attachment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "id", description = "unique identifier", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -69,106 +162,6 @@ public class Attachment {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  public Attachment href(URI href) {
-    this.href = href;
-    return this;
-  }
-
-  /**
-   * URI for this Attachment
-   * @return href
-   */
-  @Valid 
-  @Schema(name = "href", example = "http://host/Attachment/4aafacbd-11ff-4dc8-b445-305f2215715f", description = "URI for this Attachment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("href")
-  public URI getHref() {
-    return href;
-  }
-
-  public void setHref(URI href) {
-    this.href = href;
-  }
-
-  public Attachment attachmentType(String attachmentType) {
-    this.attachmentType = attachmentType;
-    return this;
-  }
-
-  /**
-   * Attachment type such as video, picture
-   * @return attachmentType
-   */
-  
-  @Schema(name = "attachmentType", example = "video", description = "Attachment type such as video, picture", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("attachmentType")
-  public String getAttachmentType() {
-    return attachmentType;
-  }
-
-  public void setAttachmentType(String attachmentType) {
-    this.attachmentType = attachmentType;
-  }
-
-  public Attachment content(String content) {
-    this.content = content;
-    return this;
-  }
-
-  /**
-   * The actual contents of the attachment object, if embedded, encoded as base64
-   * @return content
-   */
-  
-  @Schema(name = "content", description = "The actual contents of the attachment object, if embedded, encoded as base64", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("content")
-  public String getContent() {
-    return content;
-  }
-
-  public void setContent(String content) {
-    this.content = content;
-  }
-
-  public Attachment description(String description) {
-    this.description = description;
-    return this;
-  }
-
-  /**
-   * A narrative text describing the content of the attachment
-   * @return description
-   */
-  
-  @Schema(name = "description", example = "Photograph of the Product", description = "A narrative text describing the content of the attachment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("description")
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-  public Attachment mimeType(String mimeType) {
-    this.mimeType = mimeType;
-    return this;
-  }
-
-  /**
-   * Attachment mime type such as extension file for video, picture and document
-   * @return mimeType
-   */
-  
-  @Schema(name = "mimeType", description = "Attachment mime type such as extension file for video, picture and document", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("mimeType")
-  public String getMimeType() {
-    return mimeType;
-  }
-
-  public void setMimeType(String mimeType) {
-    this.mimeType = mimeType;
   }
 
   public Attachment name(String name) {
@@ -191,7 +184,27 @@ public class Attachment {
     this.name = name;
   }
 
-  public Attachment url(URI url) {
+  public Attachment description(String description) {
+    this.description = description;
+    return this;
+  }
+
+  /**
+   * A narrative text describing the content of the attachment
+   * @return description
+   */
+  
+  @Schema(name = "description", example = "Photograph of the Product", description = "A narrative text describing the content of the attachment", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("description")
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public Attachment url(String url) {
     this.url = url;
     return this;
   }
@@ -200,15 +213,35 @@ public class Attachment {
    * Uniform Resource Locator, is a web page address (a subset of URI)
    * @return url
    */
-  @Valid 
+  
   @Schema(name = "url", example = "http://host/Content/4aafacbd-11ff-4dc8-b445-305f2215715f", description = "Uniform Resource Locator, is a web page address (a subset of URI)", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("url")
-  public URI getUrl() {
+  public String getUrl() {
     return url;
   }
 
-  public void setUrl(URI url) {
+  public void setUrl(String url) {
     this.url = url;
+  }
+
+  public Attachment content(String content) {
+    this.content = content;
+    return this;
+  }
+
+  /**
+   * The actual contents of the attachment object, if embedded, encoded as base64
+   * @return content
+   */
+  
+  @Schema(name = "content", description = "The actual contents of the attachment object, if embedded, encoded as base64", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("content")
+  public String getContent() {
+    return content;
+  }
+
+  public void setContent(String content) {
+    this.content = content;
   }
 
   public Attachment size(Quantity size) {
@@ -251,64 +284,44 @@ public class Attachment {
     this.validFor = validFor;
   }
 
-  public Attachment atBaseType(String atBaseType) {
-    this.atBaseType = atBaseType;
+  public Attachment attachmentType(String attachmentType) {
+    this.attachmentType = attachmentType;
     return this;
   }
 
   /**
-   * When sub-classing, this defines the super-class
-   * @return atBaseType
+   * a business characterization of the purpose of the attachment, for example logo, instructionManual, contractCopy
+   * @return attachmentType
    */
   
-  @Schema(name = "@baseType", description = "When sub-classing, this defines the super-class", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@baseType")
-  public String getAtBaseType() {
-    return atBaseType;
+  @Schema(name = "attachmentType", description = "a business characterization of the purpose of the attachment, for example logo, instructionManual, contractCopy", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("attachmentType")
+  public String getAttachmentType() {
+    return attachmentType;
   }
 
-  public void setAtBaseType(String atBaseType) {
-    this.atBaseType = atBaseType;
+  public void setAttachmentType(String attachmentType) {
+    this.attachmentType = attachmentType;
   }
 
-  public Attachment atSchemaLocation(URI atSchemaLocation) {
-    this.atSchemaLocation = atSchemaLocation;
+  public Attachment mimeType(String mimeType) {
+    this.mimeType = mimeType;
     return this;
   }
 
   /**
-   * A URI to a JSON-Schema file that defines additional attributes and relationships
-   * @return atSchemaLocation
-   */
-  @Valid 
-  @Schema(name = "@schemaLocation", description = "A URI to a JSON-Schema file that defines additional attributes and relationships", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@schemaLocation")
-  public URI getAtSchemaLocation() {
-    return atSchemaLocation;
-  }
-
-  public void setAtSchemaLocation(URI atSchemaLocation) {
-    this.atSchemaLocation = atSchemaLocation;
-  }
-
-  public Attachment atType(String atType) {
-    this.atType = atType;
-    return this;
-  }
-
-  /**
-   * When sub-classing, this defines the sub-class Extensible name
-   * @return atType
+   * a technical characterization of the attachment content format using IETF Mime Types
+   * @return mimeType
    */
   
-  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
-  @JsonProperty("@type")
-  public String getAtType() {
-    return atType;
+  @Schema(name = "mimeType", description = "a technical characterization of the attachment content format using IETF Mime Types", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @JsonProperty("mimeType")
+  public String getMimeType() {
+    return mimeType;
   }
 
-  public void setAtType(String atType) {
-    this.atType = atType;
+  public void setMimeType(String mimeType) {
+    this.mimeType = mimeType;
   }
 
   @Override
@@ -320,43 +333,43 @@ public class Attachment {
       return false;
     }
     Attachment attachment = (Attachment) o;
-    return Objects.equals(this.id, attachment.id) &&
-        Objects.equals(this.href, attachment.href) &&
-        Objects.equals(this.attachmentType, attachment.attachmentType) &&
-        Objects.equals(this.content, attachment.content) &&
-        Objects.equals(this.description, attachment.description) &&
-        Objects.equals(this.mimeType, attachment.mimeType) &&
-        Objects.equals(this.name, attachment.name) &&
-        Objects.equals(this.url, attachment.url) &&
-        Objects.equals(this.size, attachment.size) &&
-        Objects.equals(this.validFor, attachment.validFor) &&
+    return Objects.equals(this.atType, attachment.atType) &&
         Objects.equals(this.atBaseType, attachment.atBaseType) &&
         Objects.equals(this.atSchemaLocation, attachment.atSchemaLocation) &&
-        Objects.equals(this.atType, attachment.atType);
+        Objects.equals(this.href, attachment.href) &&
+        Objects.equals(this.id, attachment.id) &&
+        Objects.equals(this.name, attachment.name) &&
+        Objects.equals(this.description, attachment.description) &&
+        Objects.equals(this.url, attachment.url) &&
+        Objects.equals(this.content, attachment.content) &&
+        Objects.equals(this.size, attachment.size) &&
+        Objects.equals(this.validFor, attachment.validFor) &&
+        Objects.equals(this.attachmentType, attachment.attachmentType) &&
+        Objects.equals(this.mimeType, attachment.mimeType);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, href, attachmentType, content, description, mimeType, name, url, size, validFor, atBaseType, atSchemaLocation, atType);
+    return Objects.hash(atType, atBaseType, atSchemaLocation, href, id, name, description, url, content, size, validFor, attachmentType, mimeType);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Attachment {\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    href: ").append(toIndentedString(href)).append("\n");
-    sb.append("    attachmentType: ").append(toIndentedString(attachmentType)).append("\n");
-    sb.append("    content: ").append(toIndentedString(content)).append("\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
-    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
-    sb.append("    size: ").append(toIndentedString(size)).append("\n");
-    sb.append("    validFor: ").append(toIndentedString(validFor)).append("\n");
+    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
     sb.append("    atBaseType: ").append(toIndentedString(atBaseType)).append("\n");
     sb.append("    atSchemaLocation: ").append(toIndentedString(atSchemaLocation)).append("\n");
-    sb.append("    atType: ").append(toIndentedString(atType)).append("\n");
+    sb.append("    href: ").append(toIndentedString(href)).append("\n");
+    sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    content: ").append(toIndentedString(content)).append("\n");
+    sb.append("    size: ").append(toIndentedString(size)).append("\n");
+    sb.append("    validFor: ").append(toIndentedString(validFor)).append("\n");
+    sb.append("    attachmentType: ").append(toIndentedString(attachmentType)).append("\n");
+    sb.append("    mimeType: ").append(toIndentedString(mimeType)).append("\n");
     sb.append("}");
     return sb.toString();
   }
