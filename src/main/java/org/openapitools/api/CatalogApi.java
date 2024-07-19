@@ -369,409 +369,729 @@ public interface CatalogApi {
         getRequest().ifPresent(request -> {
             for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
                 if (mediaType.isCompatibleWith(MediaType.valueOf("application/json;charset=utf-8"))) {
-                    String exampleString = "[\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Enterprise Plan\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Enterprise Plan\",\n" +
-                    "    \"description\": \"50GB data per month for enterprise users\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"vendor\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"3426\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/3426\",\n" +
-                    "          \"name\": \"Broadly Broad Ltd\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Organization\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \"AT&T Enterprise Basic Data Plan\",\n" +
-                    "    \"id\": \"201\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/201\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"201\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/201\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Enterprise Plan\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Enterprise Plan\",\n" +
-                    "    \"description\": \"Unlimited data and priority support for enterprise users\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"vendor\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"3426\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/3426\",\n" +
-                    "          \"name\": \"Broadly Broad Ltd\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Organization\"\n" +
-                    "        }\n" +
-                    "      },\n" +
-                    "      {\n" +
-                    "        \"role\": \"Reviser\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"115566\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/115566\",\n" +
-                    "          \"name\": \"Roger Collins\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Individual\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \"AT&T Enterprise Premium Plan\",\n" +
-                    "    \"id\": \"202\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/202\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"202\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/202\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Connected Cars\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Connected Cars\",\n" +
-                    "    \"description\": \"Unlimited data for connected car services\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"Reviser\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"115566\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/115567\",\n" +
-                    "          \"name\": \"Collins\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Individual\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \"AT&T Connected Car Basic Plan\",\n" +
-                    "    \"id\": \"204\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/203\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"204\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/203\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Connected Cars\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Connected Cars\",\n" +
-                    "    \"description\": \"50GB data per month for enterprise users\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"vendor\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"3426\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/342\",\n" +
-                    "          \"name\": \"Tech Go Ltd\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Organization\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \"AT&T Connected Car Premium Plan\",\n" +
-                    "    \"id\": \"205\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/205\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"205\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/205\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Mobile Services\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Mobile Services\",\n" +
-                    "    \"description\": \"50GB data per month for enterprise users\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"Reviser\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"1155\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/115566\",\n" +
-                    "          \"name\": \"Justin\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Individual\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \"AT&T Mobile Standard Plan\",\n" +
-                    "    \"id\": \"205\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/205\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"205\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/205\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Mobile Services\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Mobile Services\",\n" +
-                    "    \"description\": \"Unlimited data, minutes, and SMS\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"Reviser\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"1155\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/1155\",\n" +
-                    "          \"name\": \"Emily\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Individual\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \" AT&T Mobile Premium Plan\",\n" +
-                    "    \"id\": \"206\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/206\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"207\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/206\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Mobile Services\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Mobile Services\",\n" +
-                    "    \"description\": \"10GB data, unlimited minutes and SMS per month\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"vendor\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"207\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/207\",\n" +
-                    "          \"name\": \"Broadly Broad Ltd\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Organization\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \"AT&T Mobile Standard Plan\",\n" +
-                    "    \"id\": \"207\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/207\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"207\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/207\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Mobile Services\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Mobile Services\",\n" +
-                    "    \"description\": \"Unlimited voice calls for enterprise users\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"Reviser\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"208\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/individual/208\",\n" +
-                    "          \"name\": \"Megs\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Individual\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \"AT&T Mobile International Plan\",\n" +
-                    "    \"id\": \"208\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/208\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"208\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/208\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Enterprise Plan\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Enterprise Plan\",\n" +
-                    "    \"description\": \"Unlimited SMS for enterprise users\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"vendor\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"346\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/346\",\n" +
-                    "          \"name\": \"Tech Ltd\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Organization\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \"AT&T Enterprise SMS Plan\",\n" +
-                    "    \"id\": \"210\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/201\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"210\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/210\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  },\n" +
-                    "  {\n" +
-                    "    \"catalogType\": \"Connected Cars\",\n" +
-                    "    \"lifecycleStatus\": \"Active\",\n" +
-                    "    \"validFor\": {\n" +
-                    "      \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
-                    "      \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
-                    "    },\n" +
-                    "    \"@type\": \"Connected Cars\",\n" +
-                    "    \"description\": \"100 minutes of voice calls for connected car services\",\n" +
-                    "    \"relatedParty\": [\n" +
-                    "      {\n" +
-                    "        \"role\": \"vendor\",\n" +
-                    "        \"@type\": \"RelatedPartyRefOrPartyRoleRef\",\n" +
-                    "        \"partyOrPartyRole\": {\n" +
-                    "          \"id\": \"3426\",\n" +
-                    "          \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v5/organization/3426\",\n" +
-                    "          \"name\": \"ASP Ltd\",\n" +
-                    "          \"@type\": \"PartyRef\",\n" +
-                    "          \"@referredType\": \"Organization\"\n" +
-                    "        }\n" +
-                    "      }\n" +
-                    "    ],\n" +
-                    "    \"version\": \"1.1\",\n" +
-                    "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                    "    \"name\": \"AT&T Connected Car Voice Plan\",\n" +
-                    "    \"id\": \"211\",\n" +
-                    "    \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/productOffering/211\",\n" +
-                    "    \"category\": [\n" +
-                    "      {\n" +
-                    "        \"@referredType\": \"ProductCategoryRef\",\n" +
-                    "        \"@type\": \"CategoryType\",\n" +
-                    "        \"name\": \"Cloud\",\n" +
-                    "        \"id\": \"211\",\n" +
-                    "        \"href\": \"https://mycsp.com:8080/tmfapi/productCatalogManagement/v5/category/211\",\n" +
-                    "        \"@schemaLocation\": \"https://example.com/category\",\n" +
-                    "        \"version\": \"1.0\"\n" +
-                    "      }\n" +
-                    "    ]\n" +
-                    "  }\n" +
-                    "]";
+                    String exampleString = "[{\n" +
+                            "    \"catalogType\": \"Product Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"A comprehensive catalog of all available products.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Tech Supplies Co.\",\n" +
+                            "            \"id\": \"RP101\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/tech-supplies\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Global Distributors Inc.\",\n" +
+                            "            \"id\": \"RP102\",\n" +
+                            "            \"href\": \"https://example.com/distributors/global-distributors\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.2\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Global Product Catalog\",\n" +
+                            "    \"id\": \"C1001\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/global-product-catalog\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Electronics\",\n" +
+                            "            \"id\": \"CAT101\",\n" +
+                            "            \"href\": \"https://example.com/categories/electronics\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Home Appliances\",\n" +
+                            "            \"id\": \"CAT102\",\n" +
+                            "            \"href\": \"https://example.com/categories/home-appliances\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Service Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-02-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-02-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of IT services and solutions.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"IT Solutions Provider\",\n" +
+                            "            \"id\": \"RP103\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/it-solutions-provider\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Tech Solutions Distribution\",\n" +
+                            "            \"id\": \"RP104\",\n" +
+                            "            \"href\": \"https://example.com/distributors/tech-solutions-distribution\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.1\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"IT Services Catalog\",\n" +
+                            "    \"id\": \"C1002\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/it-services\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Cloud Solutions\",\n" +
+                            "            \"id\": \"CAT103\",\n" +
+                            "            \"href\": \"https://example.com/categories/cloud-solutions\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Network Security\",\n" +
+                            "            \"id\": \"CAT104\",\n" +
+                            "            \"href\": \"https://example.com/categories/network-security\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Product Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-03-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-03-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of fashion accessories.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Fashion Trends Store\",\n" +
+                            "            \"id\": \"RP105\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/fashion-trends-store\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Fashion Accessories Distribution\",\n" +
+                            "            \"id\": \"RP106\",\n" +
+                            "            \"href\": \"https://example.com/distributors/fashion-accessories-distribution\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.0\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Fashion Accessories Catalog\",\n" +
+                            "    \"id\": \"C1003\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/fashion-accessories\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Handbags\",\n" +
+                            "            \"id\": \"CAT105\",\n" +
+                            "            \"href\": \"https://example.com/categories/handbags\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Jewelry\",\n" +
+                            "            \"id\": \"CAT106\",\n" +
+                            "            \"href\": \"https://example.com/categories/jewelry\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Service Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-04-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-04-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of healthcare services.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Healthcare Providers Group\",\n" +
+                            "            \"id\": \"RP107\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/healthcare-providers\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Global Health Services Distribution\",\n" +
+                            "            \"id\": \"RP108\",\n" +
+                            "            \"href\": \"https://example.com/distributors/global-health-services\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.2\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Healthcare Services Catalog\",\n" +
+                            "    \"id\": \"C1004\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/healthcare-services\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Primary Care\",\n" +
+                            "            \"id\": \"CAT107\",\n" +
+                            "            \"href\": \"https://example.com/categories/primary-care\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Specialty Care\",\n" +
+                            "            \"id\": \"CAT108\",\n" +
+                            "            \"href\": \"https://example.com/categories/specialty-care\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Product Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-05-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-05-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of sports equipment.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Sports Gear Inc.\",\n" +
+                            "            \"id\": \"RP109\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/sports-gear\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Sporting Goods Distribution\",\n" +
+                            "            \"id\": \"RP110\",\n" +
+                            "            \"href\": \"https://example.com/distributors/sporting-goods-distribution\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.1\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Sports Equipment Catalog\",\n" +
+                            "    \"id\": \"C1005\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/sports-equipment\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Fitness Accessories\",\n" +
+                            "            \"id\": \"CAT109\",\n" +
+                            "            \"href\": \"https://example.com/categories/fitness-accessories\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Team Sports\",\n" +
+                            "            \"id\": \"CAT110\",\n" +
+                            "            \"href\": \"https://example.com/categories/team-sports\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Product Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-06-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-06-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of books and literature.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Bookworm Publications\",\n" +
+                            "            \"id\": \"RP111\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/bookworm-publications\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Literature Distribution Inc.\",\n" +
+                            "            \"id\": \"RP112\",\n" +
+                            "            \"href\": \"https://example.com/distributors/literature-distribution\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.0\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Books Catalog\",\n" +
+                            "    \"id\": \"C1006\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/books\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Fiction\",\n" +
+                            "            \"id\": \"CAT111\",\n" +
+                            "            \"href\": \"https://example.com/categories/fiction\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Non-fiction\",\n" +
+                            "            \"id\": \"CAT112\",\n" +
+                            "            \"href\": \"https://example.com/categories/non-fiction\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},\n" +
+                            "{\n" +
+                            "    \"catalogType\": \"Service Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-07-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-07-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of financial services.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Financial Solutions Group\",\n" +
+                            "            \"id\": \"RP113\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/financial-solutions-group\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Global Finance Distribution\",\n" +
+                            "            \"id\": \"RP114\",\n" +
+                            "            \"href\": \"https://example.com/distributors/global-finance\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.1\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Financial Services Catalog\",\n" +
+                            "    \"id\": \"C1007\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/financial-services\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Investment Services\",\n" +
+                            "            \"id\": \"CAT113\",\n" +
+                            "            \"href\": \"https://example.com/categories/investment-services\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Insurance Services\",\n" +
+                            "            \"id\": \"CAT114\",\n" +
+                            "            \"href\": \"https://example.com/categories/insurance-services\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Product Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-08-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-08-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of gardening tools.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Green Thumb Supplies\",\n" +
+                            "            \"id\": \"RP115\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/green-thumb-supplies\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Garden Tools Distribution\",\n" +
+                            "            \"id\": \"RP116\",\n" +
+                            "            \"href\": \"https://example.com/distributors/garden-tools-distribution\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.0\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Gardening Tools Catalog\",\n" +
+                            "    \"id\": \"C1008\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/gardening-tools\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Hand Tools\",\n" +
+                            "            \"id\": \"CAT115\",\n" +
+                            "            \"href\": \"https://example.com/categories/hand-tools\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Plant Care\",\n" +
+                            "            \"id\": \"CAT116\",\n" +
+                            "            \"href\": \"https://example.com/categories/plant-care\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Service Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-09-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-09-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of legal services.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Legal Solutions Firm\",\n" +
+                            "            \"id\": \"RP117\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/legal-solutions-firm\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Global Legal Services Distribution\",\n" +
+                            "            \"id\": \"RP118\",\n" +
+                            "            \"href\": \"https://example.com/distributors/global-legal-services\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.1\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Legal Services Catalog\",\n" +
+                            "    \"id\": \"C1009\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/legal-services\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Corporate Law\",\n" +
+                            "            \"id\": \"CAT117\",\n" +
+                            "            \"href\": \"https://example.com/categories/corporate-law\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Family Law\",\n" +
+                            "            \"id\": \"CAT118\",\n" +
+                            "            \"href\": \"https://example.com/categories/family-law\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Product Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-10-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-10-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of pet supplies.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Pet Essentials Store\",\n" +
+                            "            \"id\": \"RP119\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/pet-essentials-store\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Pet Supplies Distribution\",\n" +
+                            "            \"id\": \"RP120\",\n" +
+                            "            \"href\": \"https://example.com/distributors/pet-supplies-distribution\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.0\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Pet Supplies Catalog\",\n" +
+                            "    \"id\": \"C1010\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/pet-supplies\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Dog Supplies\",\n" +
+                            "            \"id\": \"CAT119\",\n" +
+                            "            \"href\": \"https://example.com/categories/dog-supplies\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Cat Supplies\",\n" +
+                            "            \"id\": \"CAT120\",\n" +
+                            "            \"href\": \"https://example.com/categories/cat-supplies\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Service Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-11-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-11-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of travel services.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Travel Experts Group\",\n" +
+                            "            \"id\": \"RP121\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/travel-experts-group\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Global Travel Services Distribution\",\n" +
+                            "            \"id\": \"RP122\",\n" +
+                            "            \"href\": \"https://example.com/distributors/global-travel-services\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.1\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Travel Services Catalog\",\n" +
+                            "    \"id\": \"C1011\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/travel-services\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Flight Booking\",\n" +
+                            "            \"id\": \"CAT121\",\n" +
+                            "            \"href\": \"https://example.com/categories/flight-booking\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ServiceCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Hotel Reservations\",\n" +
+                            "            \"id\": \"CAT122\",\n" +
+                            "            \"href\": \"https://example.com/categories/hotel-reservations\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "},{\n" +
+                            "    \"catalogType\": \"Product Catalog\",\n" +
+                            "    \"lifecycleStatus\": \"Active\",\n" +
+                            "    \"validFor\": {\n" +
+                            "        \"startDateTime\": \"2024-12-01T00:00:00Z\",\n" +
+                            "        \"endDateTime\": \"2025-12-01T00:00:00Z\"\n" +
+                            "    },\n" +
+                            "    \"@type\": \"CatalogType\",\n" +
+                            "    \"description\": \"Catalog of kitchen appliances.\",\n" +
+                            "    \"relatedParty\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Kitchen Essentials Co.\",\n" +
+                            "            \"id\": \"RP123\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/kitchen-essentials\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"RelatedPartyType\",\n" +
+                            "            \"name\": \"Kitchen Appliances Distribution\",\n" +
+                            "            \"id\": \"RP124\",\n" +
+                            "            \"href\": \"https://example.com/distributors/kitchen-appliances-distribution\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"version\": \"1.0\",\n" +
+                            "    \"@baseType\": \"BaseType\",\n" +
+                            "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
+                            "    \"name\": \"Kitchen Appliances Catalog\",\n" +
+                            "    \"id\": \"C1012\",\n" +
+                            "    \"href\": \"https://example.com/catalogs/kitchen-appliances\",\n" +
+                            "    \"category\": [\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Small Appliances\",\n" +
+                            "            \"id\": \"CAT123\",\n" +
+                            "            \"href\": \"https://example.com/categories/small-appliances\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        },\n" +
+                            "        {\n" +
+                            "            \"@referredType\": \"ProductCategoryRef\",\n" +
+                            "            \"@baseType\": \"BaseType\",\n" +
+                            "            \"@type\": \"CategoryType\",\n" +
+                            "            \"name\": \"Large Appliances\",\n" +
+                            "            \"id\": \"CAT124\",\n" +
+                            "            \"href\": \"https://example.com/categories/large-appliances\",\n" +
+                            "            \"@schemaLocation\": \"https://example.com/schema\",\n" +
+                            "            \"version\": \"1.0\"\n" +
+                            "        }\n" +
+                            "    ],\n" +
+                            "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
+                            "}\n" +
+                            "]";
                     ApiUtil.setExampleResponse(request, "application/json;charset=utf-8", exampleString);
                     break;
                 }
