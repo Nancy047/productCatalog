@@ -403,7 +403,7 @@ public interface CatalogApi {
                             "    \"version\": \"1.2\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"AT&T Enterprise Basic Data Plan\",\n" +
+                            "    \"name\": \"Business Analytics\",\n" +
                             "    \"id\": \"C1001\",\n" +
                             "    \"href\": \"https://example.com/catalogs/global-product-catalog\",\n" +
                             "    \"category\": [\n" +
@@ -463,7 +463,7 @@ public interface CatalogApi {
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"AT&T Mobile Standard Plan\",\n" +
+                            "    \"name\": \"Contact Center\",\n" +
                             "    \"id\": \"C1002\",\n" +
                             "    \"href\": \"https://example.com/catalogs/it-services\",\n" +
                             "    \"category\": [\n" +
