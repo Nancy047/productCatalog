@@ -948,33 +948,23 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-12-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of kitchen appliances.\",\n" +
+                            "    \"description\": \"100 minutes of voice calls for connected car services\",\n" +
                             "    \"relatedParty\": [\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Supplier\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Kitchen Essentials Co.\",\n" +
-                            "            \"id\": \"RP123\",\n" +
-                            "            \"href\": \"https://example.com/suppliers/kitchen-essentials\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
                             "            \"role\": \"Distributor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Kitchen Appliances Distribution\",\n" +
-                            "            \"id\": \"RP124\",\n" +
-                            "            \"href\": \"https://example.com/distributors/kitchen-appliances-distribution\",\n" +
+                            "            \"name\": \"SF Ltd\",\n" +
+                            "            \"id\": \"RP123\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/kitchen-essentials\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        }\n" +
+                            "        },\n" +
                             "    ],\n" +
                             "    \"version\": \"1.0\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Kitchen Appliances Catalog\",\n" +
+                            "    \"name\": \"AT&T Connected Car Voice Plan\",\n" +
                             "    \"id\": \"C1012\",\n" +
                             "    \"href\": \"https://example.com/catalogs/kitchen-appliances\",\n" +
                             "    \"category\": [\n" +
