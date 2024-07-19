@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.FullyQualifiedAnnotationBeanNameGenerator;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication(
     nameGenerator = FullyQualifiedAnnotationBeanNameGenerator.class
@@ -26,7 +28,8 @@ public class OpenApiGeneratorApplication {
     public Module jsonNullableModule() {
         return new JsonNullableModule();
     }
-@Bean
+
+    @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
             @Override
@@ -41,3 +44,4 @@ public class OpenApiGeneratorApplication {
             }
         };
     }
+}

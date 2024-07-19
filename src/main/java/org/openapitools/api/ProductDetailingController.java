@@ -3,12 +3,13 @@ package org.openapitools.api;
 import org.openapitools.utils.ProductCatalogUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = "*") 
+@CrossOrigin(origins = "*")
 @RequestMapping("tmf-api/productCatalogManagement/v4")
 
 public class ProductDetailingController {
