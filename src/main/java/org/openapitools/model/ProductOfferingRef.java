@@ -20,12 +20,12 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "ProductOfferingRef", description = "ProductOffering reference. A product offering represents entities that are orderable from the provider of the catalog, this resource includes pricing information.")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-09T13:05:26.782760900+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
 public class ProductOfferingRef {
 
   private String id;
 
-  private URI href;
+  private String href;
 
   private String name;
 
@@ -54,11 +54,11 @@ public class ProductOfferingRef {
   }
 
   /**
-   * unique identifier
+   * Unique identifier of a related entity.
    * @return id
    */
   @NotNull 
-  @Schema(name = "id", description = "unique identifier", requiredMode = Schema.RequiredMode.REQUIRED)
+  @Schema(name = "id", description = "Unique identifier of a related entity.", requiredMode = Schema.RequiredMode.REQUIRED)
   @JsonProperty("id")
   public String getId() {
     return id;
@@ -68,23 +68,23 @@ public class ProductOfferingRef {
     this.id = id;
   }
 
-  public ProductOfferingRef href(URI href) {
+  public ProductOfferingRef href(String href) {
     this.href = href;
     return this;
   }
 
   /**
-   * Hyperlink reference
+   * Reference of the related entity.
    * @return href
    */
-  @Valid 
-  @Schema(name = "href", description = "Hyperlink reference", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  
+  @Schema(name = "href", description = "Reference of the related entity.", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("href")
-  public URI getHref() {
+  public String getHref() {
     return href;
   }
 
-  public void setHref(URI href) {
+  public void setHref(String href) {
     this.href = href;
   }
 
@@ -154,11 +154,11 @@ public class ProductOfferingRef {
   }
 
   /**
-   * When sub-classing, this defines the sub-class Extensible name
+   * When sub-classing, this defines the sub-class entity name
    * @return atType
    */
   
-  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class Extensible name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "@type", description = "When sub-classing, this defines the sub-class entity name", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("@type")
   public String getAtType() {
     return atType;

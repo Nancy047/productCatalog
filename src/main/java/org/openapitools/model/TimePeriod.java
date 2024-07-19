@@ -21,7 +21,7 @@ import javax.annotation.Generated;
  */
 
 @Schema(name = "TimePeriod", description = "A period of time, either as a deadline (endDateTime only) a startDateTime only, or both")
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-09T13:05:26.782760900+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
 public class TimePeriod {
 
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -40,7 +40,7 @@ public class TimePeriod {
    * @return endDateTime
    */
   @Valid 
-  @Schema(name = "endDateTime", example = "1985-04-12T23:20:50.520Z", description = "End of the time period, using IETC-RFC-3339 format", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "endDateTime", description = "End of the time period, using IETC-RFC-3339 format", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("endDateTime")
   public OffsetDateTime getEndDateTime() {
     return endDateTime;
@@ -56,11 +56,11 @@ public class TimePeriod {
   }
 
   /**
-   * Start of the time period, using IETC-RFC-3339 format
+   * Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end
    * @return startDateTime
    */
   @Valid 
-  @Schema(name = "startDateTime", example = "1985-04-12T23:20:50.520Z", description = "Start of the time period, using IETC-RFC-3339 format", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
+  @Schema(name = "startDateTime", description = "Start of the time period, using IETC-RFC-3339 format. If you define a start, you must also define an end", requiredMode = Schema.RequiredMode.NOT_REQUIRED)
   @JsonProperty("startDateTime")
   public OffsetDateTime getStartDateTime() {
     return startDateTime;

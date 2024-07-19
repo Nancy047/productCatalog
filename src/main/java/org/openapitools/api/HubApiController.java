@@ -22,11 +22,10 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-16T16:55:02.035577+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2024-07-09T13:05:26.782760900+05:30[GMT+05:30]", comments = "Generator version: 7.7.0")
 @Controller
 @CrossOrigin(origins = "*")
-@RequestMapping("${openapi.productCatalogManagement.base-path:/tmf-api/productCatalogManagement/v4}")
- 
+@RequestMapping("${openapi.productOrdering.base-path:/tmf-api/productOrderingManagement/v4}")
 public class HubApiController implements HubApi {
 
     private final NativeWebRequest request;

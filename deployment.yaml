@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: product-catalog
+  name: product-order
   namespace: default
   labels:
-    app: product-catalog
+    app: product-order
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: product-catalog
+      app: product-order
   template:
     metadata:
       labels:
-        app: product-catalog
+        app: product-order
     spec:
       containers:
-        - name: product-catalog
+        - name: product-order
           image: ""
           ports:
-            - containerPort: 8085
+            - containerPort: 8089
           

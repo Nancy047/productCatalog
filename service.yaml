@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: product-catalog
+  name: product-order
   namespace: default
 spec:
   ports:
   - name: http
-    port: 8085
-    targetPort: 8085
+    port: 8089
+    targetPort: 8089
     protocol: TCP
   selector:
-    app: product-catalog
+    app: product-order
   type: LoadBalancer
