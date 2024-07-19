@@ -508,7 +508,7 @@ public interface CatalogApi {
                             "            \"id\": \"RP105\",\n" +
                             "            \"href\": \"https://example.com/suppliers/fashion-trends-store\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
+                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.0\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
