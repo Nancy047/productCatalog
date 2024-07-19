@@ -430,18 +430,18 @@ public interface CatalogApi {
                             "    ],\n" +
                             "    \"@schemaLocation\": \"https://example.com/schema\"\n" +
                             "},{\n" +
-                            "    \"catalogType\": \"Service Catalog\",\n" +
+                            "    \"catalogType\": \"Enterprise Plan\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-02-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-02-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of IT services and solutions.\",\n" +
+                            "    \"description\": \"10GB data, unlimited minutes and SMS per month\",\n" +
                             "    \"relatedParty\": [\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Supplier\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
                             "            \"name\": \"IT Solutions Provider\",\n" +
@@ -451,7 +451,7 @@ public interface CatalogApi {
                             "        },\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Distributor\",\n" +
+                            "            \"role\": \"Vendor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
                             "            \"name\": \"Tech Solutions Distribution\",\n" +
@@ -463,7 +463,7 @@ public interface CatalogApi {
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"IT Services Catalog\",\n" +
+                            "    \"name\": \"AT&T Mobile Standard Plan\",\n" +
                             "    \"id\": \"C1002\",\n" +
                             "    \"href\": \"https://example.com/catalogs/it-services\",\n" +
                             "    \"category\": [\n" +
@@ -497,33 +497,23 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-03-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of fashion accessories.\",\n" +
+                            "    \"description\": \"5GB data, 200 minutes, 200 SMS with international coverage\",\n" +
                             "    \"relatedParty\": [\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
                             "            \"role\": \"Supplier\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Fashion Trends Store\",\n" +
+                            "            \"name\": \"TechG ltd\",\n" +
                             "            \"id\": \"RP105\",\n" +
                             "            \"href\": \"https://example.com/suppliers/fashion-trends-store\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
                             "        },\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Distributor\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Fashion Accessories Distribution\",\n" +
-                            "            \"id\": \"RP106\",\n" +
-                            "            \"href\": \"https://example.com/distributors/fashion-accessories-distribution\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.0\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Fashion Accessories Catalog\",\n" +
+                            "    \"name\": \"AT&T Mobile International Plan\",\n" +
                             "    \"id\": \"C1003\",\n" +
                             "    \"href\": \"https://example.com/catalogs/fashion-accessories\",\n" +
                             "    \"category\": [\n" +
@@ -557,33 +547,23 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-04-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of healthcare services.\",\n" +
+                            "    \"description\": \"Customizable plan for large enterprises based on specific needs\",\n" +
                             "    \"relatedParty\": [\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Supplier\",\n" +
+                            "            \"role\": \"Vendor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Healthcare Providers Group\",\n" +
+                            "            \"name\": \"AGS Group\",\n" +
                             "            \"id\": \"RP107\",\n" +
                             "            \"href\": \"https://example.com/suppliers/healthcare-providers\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
                             "        },\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Distributor\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Global Health Services Distribution\",\n" +
-                            "            \"id\": \"RP108\",\n" +
-                            "            \"href\": \"https://example.com/distributors/global-health-services\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.2\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Healthcare Services Catalog\",\n" +
+                            "    \"name\": \"Enterprise Custom Plan\",\n" +
                             "    \"id\": \"C1004\",\n" +
                             "    \"href\": \"https://example.com/catalogs/healthcare-services\",\n" +
                             "    \"category\": [\n" +
@@ -617,33 +597,23 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-05-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of sports equipment.\",\n" +
+                            "    \"description\": \"Pay for data, minutes, and SMS as you use\",\n" +
                             "    \"relatedParty\": [\n" +
                             "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Supplier\",\n" +
+                            "            \"@referredType\": \"Individual\",\n" +
+                            "            \"role\": \"Distributor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Sports Gear Inc.\",\n" +
+                            "            \"name\": \"Emily\",\n" +
                             "            \"id\": \"RP109\",\n" +
                             "            \"href\": \"https://example.com/suppliers/sports-gear\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
                             "        },\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Distributor\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Sporting Goods Distribution\",\n" +
-                            "            \"id\": \"RP110\",\n" +
-                            "            \"href\": \"https://example.com/distributors/sporting-goods-distribution\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Sports Equipment Catalog\",\n" +
+                            "    \"name\": \"AT&T Mobile Pay-As-You-Go Plan\",\n" +
                             "    \"id\": \"C1005\",\n" +
                             "    \"href\": \"https://example.com/catalogs/sports-equipment\",\n" +
                             "    \"category\": [\n" +
@@ -677,33 +647,23 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-06-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of books and literature.\",\n" +
+                            "    \"description\": \"15GB data for advanced connected car services\",\n" +
                             "    \"relatedParty\": [\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Supplier\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Bookworm Publications\",\n" +
-                            "            \"id\": \"RP111\",\n" +
-                            "            \"href\": \"https://example.com/suppliers/bookworm-publications\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
                             "            \"role\": \"Distributor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Literature Distribution Inc.\",\n" +
-                            "            \"id\": \"RP112\",\n" +
-                            "            \"href\": \"https://example.com/distributors/literature-distribution\",\n" +
+                            "            \"name\": \"Pro Ltd\",\n" +
+                            "            \"id\": \"RP111\",\n" +
+                            "            \"href\": \"https://example.com/suppliers/bookworm-publications\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        }\n" +
+                            "        },\n" +
                             "    ],\n" +
                             "    \"version\": \"1.0\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Books Catalog\",\n" +
+                            "    \"name\": \"AT&T Connected Car Data Plan\",\n" +
                             "    \"id\": \"C1006\",\n" +
                             "    \"href\": \"https://example.com/catalogs/books\",\n" +
                             "    \"category\": [\n" +
@@ -738,33 +698,23 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-07-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of financial services.\",\n" +
+                            "    \"description\": \"100GB data for IoT devices in enterprise settings\",\n" +
                             "    \"relatedParty\": [\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
                             "            \"role\": \"Supplier\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Financial Solutions Group\",\n" +
+                            "            \"name\": \"FDH Solutions Group\",\n" +
                             "            \"id\": \"RP113\",\n" +
                             "            \"href\": \"https://example.com/suppliers/financial-solutions-group\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
                             "        },\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Distributor\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Global Finance Distribution\",\n" +
-                            "            \"id\": \"RP114\",\n" +
-                            "            \"href\": \"https://example.com/distributors/global-finance\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Financial Services Catalog\",\n" +
+                            "    \"name\": \"AT&T Enterprise IoT Plan\",\n" +
                             "    \"id\": \"C1007\",\n" +
                             "    \"href\": \"https://example.com/catalogs/financial-services\",\n" +
                             "    \"category\": [\n" +
@@ -798,33 +748,23 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-08-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of gardening tools.\",\n" +
+                            "    \"description\": \"5GB data, unlimited minutes and SMS for students\",\n" +
                             "    \"relatedParty\": [\n" +
                             "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
+                            "            \"@referredType\": \"Individual\",\n" +
                             "            \"role\": \"Supplier\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Green Thumb Supplies\",\n" +
+                            "            \"name\": \"Daniel Nison\",\n" +
                             "            \"id\": \"RP115\",\n" +
                             "            \"href\": \"https://example.com/suppliers/green-thumb-supplies\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
                             "        },\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Distributor\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Garden Tools Distribution\",\n" +
-                            "            \"id\": \"RP116\",\n" +
-                            "            \"href\": \"https://example.com/distributors/garden-tools-distribution\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.0\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Gardening Tools Catalog\",\n" +
+                            "    \"name\": \"AT&T Mobile Student Plan\",\n" +
                             "    \"id\": \"C1008\",\n" +
                             "    \"href\": \"https://example.com/catalogs/gardening-tools\",\n" +
                             "    \"category\": [\n" +
@@ -858,33 +798,23 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-09-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of legal services.\",\n" +
+                            "    \"description\": \"10GB shared data for multiple connected cars\",\n" +
                             "    \"relatedParty\": [\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Supplier\",\n" +
+                            "            \"role\": \"Vendor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Legal Solutions Firm\",\n" +
+                            "            \"name\": \"Greens Ltd\",\n" +
                             "            \"id\": \"RP117\",\n" +
                             "            \"href\": \"https://example.com/suppliers/legal-solutions-firm\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
                             "        },\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Distributor\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Global Legal Services Distribution\",\n" +
-                            "            \"id\": \"RP118\",\n" +
-                            "            \"href\": \"https://example.com/distributors/global-legal-services\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Legal Services Catalog\",\n" +
+                            "    \"name\": \"AT&T Connected Car Family Plan\",\n" +
                             "    \"id\": \"C1009\",\n" +
                             "    \"href\": \"https://example.com/catalogs/legal-services\",\n" +
                             "    \"category\": [\n" +
@@ -918,24 +848,14 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-10-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of pet supplies.\",\n" +
+                            "    \"description\": \"Unlimited data, minutes, and SMS with global coverage\",\n" +
                             "    \"relatedParty\": [\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Supplier\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Pet Essentials Store\",\n" +
-                            "            \"id\": \"RP119\",\n" +
-                            "            \"href\": \"https://example.com/suppliers/pet-essentials-store\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        },\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
                             "            \"role\": \"Distributor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Pet Supplies Distribution\",\n" +
+                            "            \"name\": \"AR Ltd\",\n" +
                             "            \"id\": \"RP120\",\n" +
                             "            \"href\": \"https://example.com/distributors/pet-supplies-distribution\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
@@ -944,7 +864,7 @@ public interface CatalogApi {
                             "    \"version\": \"1.0\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Pet Supplies Catalog\",\n" +
+                            "    \"name\": \"AT&T Enterprise Global Plan\",\n" +
                             "    \"id\": \"C1010\",\n" +
                             "    \"href\": \"https://example.com/catalogs/pet-supplies\",\n" +
                             "    \"category\": [\n" +
@@ -978,33 +898,23 @@ public interface CatalogApi {
                             "        \"endDateTime\": \"2025-11-01T00:00:00Z\"\n" +
                             "    },\n" +
                             "    \"@type\": \"CatalogType\",\n" +
-                            "    \"description\": \"Catalog of travel services.\",\n" +
+                            "    \"description\": \"20GB shared data, unlimited minutes and SMS for up to 5 family members\",\n" +
                             "    \"relatedParty\": [\n" +
                             "        {\n" +
                             "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Supplier\",\n" +
+                            "            \"role\": \"Vendor\",\n" +
                             "            \"@baseType\": \"BaseType\",\n" +
                             "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Travel Experts Group\",\n" +
+                            "            \"name\": \"ADT Group\",\n" +
                             "            \"id\": \"RP121\",\n" +
                             "            \"href\": \"https://example.com/suppliers/travel-experts-group\",\n" +
                             "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
                             "        },\n" +
-                            "        {\n" +
-                            "            \"@referredType\": \"Organization\",\n" +
-                            "            \"role\": \"Distributor\",\n" +
-                            "            \"@baseType\": \"BaseType\",\n" +
-                            "            \"@type\": \"RelatedPartyType\",\n" +
-                            "            \"name\": \"Global Travel Services Distribution\",\n" +
-                            "            \"id\": \"RP122\",\n" +
-                            "            \"href\": \"https://example.com/distributors/global-travel-services\",\n" +
-                            "            \"@schemaLocation\": \"https://example.com/schema\"\n" +
-                            "        }\n" +
                             "    ],\n" +
                             "    \"version\": \"1.1\",\n" +
                             "    \"@baseType\": \"BaseType\",\n" +
                             "    \"lastUpdate\": \"2024-07-18T00:00:00Z\",\n" +
-                            "    \"name\": \"Travel Services Catalog\",\n" +
+                            "    \"name\": \"AT&T Mobile Family Plan\",\n" +
                             "    \"id\": \"C1011\",\n" +
                             "    \"href\": \"https://example.com/catalogs/travel-services\",\n" +
                             "    \"category\": [\n" +
