@@ -372,6 +372,7 @@ public interface CatalogApi {
                     String exampleString = "[{\n" +
                             "    \"catalogType\": \"Product Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"CircleLife\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-01-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-01-01T00:00:00Z\"\n" +
@@ -432,6 +433,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Enterprise Plan\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"CircleLife\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-02-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-02-01T00:00:00Z\"\n" +
@@ -492,6 +494,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Product Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Gigs\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-03-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-03-01T00:00:00Z\"\n" +
@@ -542,6 +545,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Service Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Gigs\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-04-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-04-01T00:00:00Z\"\n" +
@@ -592,6 +596,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Product Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Oxio\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-05-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-05-01T00:00:00Z\"\n" +
@@ -642,6 +647,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Product Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Oxio\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-06-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-06-01T00:00:00Z\"\n" +
@@ -693,6 +699,7 @@ public interface CatalogApi {
                             "{\n" +
                             "    \"catalogType\": \"Service Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Oxio\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-07-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-07-01T00:00:00Z\"\n" +
@@ -743,6 +750,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Product Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Reach\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-08-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-08-01T00:00:00Z\"\n" +
@@ -793,6 +801,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Service Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Reach\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-09-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-09-01T00:00:00Z\"\n" +
@@ -843,6 +852,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Product Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Reach\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-10-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-10-01T00:00:00Z\"\n" +
@@ -893,6 +903,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Service Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Matrix\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-11-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-11-01T00:00:00Z\"\n" +
@@ -943,6 +954,7 @@ public interface CatalogApi {
                             "},{\n" +
                             "    \"catalogType\": \"Product Catalog\",\n" +
                             "    \"lifecycleStatus\": \"Active\",\n" +
+                            "        \"paasPlatorm\":\"Knox\",\n" +
                             "    \"validFor\": {\n" +
                             "        \"startDateTime\": \"2024-12-01T00:00:00Z\",\n" +
                             "        \"endDateTime\": \"2025-12-01T00:00:00Z\"\n" +
